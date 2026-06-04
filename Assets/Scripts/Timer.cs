@@ -17,8 +17,8 @@ public class Timer : MonoBehaviour
     void Update()
     {
         gameOn = GameManager._instance.gameOn;
-        Timer -= Time.deltaTime;
-        if (Timer < 0 && gameOn)
+        timer -= Time.deltaTime;
+        if (timer < 0 && gameOn)
         {
             Vector3 pos = new Vector3(Random.Range(-8f, 8f),
                                       Random.Range(-4f, 4f), 0);

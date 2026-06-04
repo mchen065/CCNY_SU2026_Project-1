@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager _instance;
 
     public float gameTimer = 60f;
+    public float timer = 3f;
     public TextMeshProUGUI scoreText;
     public GameObject myObject;
     public GameObject myPlayer;
+    public PlayerWASD playerScript;
     public TextMeshProUGUI gameTimeText;
     public PlayerWASD myWASD;
     Rigidbody2D playerRB;
@@ -27,7 +29,6 @@ public class GameManager : MonoBehaviour
         gameOn = true;
         myPlayer = PlayerWASD.THEplayer.gameObject;
 
-        myPlayer = myPlayer.GetComponent<PlayerWASD>();
         //PlayerScript=PlayerWASD.GetComponent<PlayerWASD>();
         playerScript = PlayerWASD.THEplayer;
 
@@ -55,9 +56,9 @@ public class GameManager : MonoBehaviour
             {
                 myPlayer.SetActive(false);
                 playerScript.enabled = false;
-                playerRB.Addforce(Vector3.up * 100f);
+                playerRB.AddForce(Vector3.up * 100f);
                 playerRB.AddTorque(5f);
-                GameObject[] allCoins = GameObject.FindObjectsByType<Coin>(FindObjectsSortMode.None);
+
                 foreach (Coin c in allCoins)
                 {
                     Destroy(c.gameObject);
