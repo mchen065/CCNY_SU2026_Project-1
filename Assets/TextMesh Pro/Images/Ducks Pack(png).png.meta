@@ -1,0 +1,3380 @@
+fileFormatVersion: 2
+guid: 00228c0eaf6944fe28ae1858d1f7207c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8918327967696316321
+    second: Ducks Pack(png)_0
+  - first:
+      213: 244222102162502529
+    second: Ducks Pack(png)_1
+  - first:
+      213: -1256810071212995280
+    second: Ducks Pack(png)_2
+  - first:
+      213: 4208771265924682255
+    second: Ducks Pack(png)_3
+  - first:
+      213: -8831100593305912439
+    second: Ducks Pack(png)_4
+  - first:
+      213: -6850618030694440060
+    second: Ducks Pack(png)_5
+  - first:
+      213: -2895502428916566573
+    second: Ducks Pack(png)_6
+  - first:
+      213: -5353088687954521363
+    second: Ducks Pack(png)_7
+  - first:
+      213: -1930672027863294964
+    second: Ducks Pack(png)_8
+  - first:
+      213: -5010656173095624249
+    second: Ducks Pack(png)_9
+  - first:
+      213: 8919108582470751281
+    second: Ducks Pack(png)_10
+  - first:
+      213: 3981480994714357496
+    second: Ducks Pack(png)_11
+  - first:
+      213: 1651283201618966190
+    second: Ducks Pack(png)_12
+  - first:
+      213: -8766055997314794766
+    second: Ducks Pack(png)_13
+  - first:
+      213: 4363486310938456516
+    second: Ducks Pack(png)_14
+  - first:
+      213: 7133300820082397784
+    second: Ducks Pack(png)_15
+  - first:
+      213: -4172028621736246508
+    second: Ducks Pack(png)_16
+  - first:
+      213: -6474362417016336443
+    second: Ducks Pack(png)_17
+  - first:
+      213: 3032848925647537615
+    second: Ducks Pack(png)_18
+  - first:
+      213: -2841089123319004998
+    second: Ducks Pack(png)_19
+  - first:
+      213: -8526011500632071902
+    second: Ducks Pack(png)_20
+  - first:
+      213: 4342831880674634292
+    second: Ducks Pack(png)_21
+  - first:
+      213: -5737746256557100048
+    second: Ducks Pack(png)_22
+  - first:
+      213: -2703233789574517534
+    second: Ducks Pack(png)_23
+  - first:
+      213: -959676788561685309
+    second: Ducks Pack(png)_24
+  - first:
+      213: 8126715513856194875
+    second: Ducks Pack(png)_25
+  - first:
+      213: -6099178880913236574
+    second: Ducks Pack(png)_26
+  - first:
+      213: -6392376282174319190
+    second: Ducks Pack(png)_27
+  - first:
+      213: 9213532603715023875
+    second: Ducks Pack(png)_28
+  - first:
+      213: 7229759575285480415
+    second: Ducks Pack(png)_29
+  - first:
+      213: -5315178362065233869
+    second: Ducks Pack(png)_30
+  - first:
+      213: -6067214986905927237
+    second: Ducks Pack(png)_31
+  - first:
+      213: 186557371092853052
+    second: Ducks Pack(png)_32
+  - first:
+      213: -1162238347317367500
+    second: Ducks Pack(png)_33
+  - first:
+      213: -2005474911702765328
+    second: Ducks Pack(png)_34
+  - first:
+      213: -8563710513139595016
+    second: Ducks Pack(png)_35
+  - first:
+      213: 5304237224637660603
+    second: Ducks Pack(png)_36
+  - first:
+      213: -7240643594161135288
+    second: Ducks Pack(png)_37
+  - first:
+      213: -8665080618185671632
+    second: Ducks Pack(png)_38
+  - first:
+      213: -5572669575073295236
+    second: Ducks Pack(png)_39
+  - first:
+      213: -6387518155688113838
+    second: Ducks Pack(png)_40
+  - first:
+      213: -4152154436820216359
+    second: Ducks Pack(png)_41
+  - first:
+      213: 8349034886674927895
+    second: Ducks Pack(png)_42
+  - first:
+      213: 2941860974524954735
+    second: Ducks Pack(png)_43
+  - first:
+      213: -8177762290872502578
+    second: Ducks Pack(png)_44
+  - first:
+      213: 2057849505151337472
+    second: Ducks Pack(png)_45
+  - first:
+      213: -224034552475951507
+    second: Ducks Pack(png)_46
+  - first:
+      213: 4627990449289490963
+    second: Ducks Pack(png)_47
+  - first:
+      213: 3268380223638015573
+    second: Ducks Pack(png)_48
+  - first:
+      213: 3413408153379836994
+    second: Ducks Pack(png)_49
+  - first:
+      213: -6444770380011332206
+    second: Ducks Pack(png)_50
+  - first:
+      213: -5191463214986714632
+    second: Ducks Pack(png)_51
+  - first:
+      213: 5468783321926866328
+    second: Ducks Pack(png)_52
+  - first:
+      213: 5048424735370505497
+    second: Ducks Pack(png)_53
+  - first:
+      213: -7349848335698562810
+    second: Ducks Pack(png)_54
+  - first:
+      213: -8105819416360695425
+    second: Ducks Pack(png)_55
+  - first:
+      213: 1687293656278744779
+    second: Ducks Pack(png)_56
+  - first:
+      213: 2816445700546810499
+    second: Ducks Pack(png)_57
+  - first:
+      213: 3812635538959405789
+    second: Ducks Pack(png)_58
+  - first:
+      213: 7636244762000766314
+    second: Ducks Pack(png)_59
+  - first:
+      213: -2479775244538314069
+    second: Ducks Pack(png)_60
+  - first:
+      213: -7108941679457456700
+    second: Ducks Pack(png)_61
+  - first:
+      213: 1107028770067436823
+    second: Ducks Pack(png)_62
+  - first:
+      213: -7845569179875533993
+    second: Ducks Pack(png)_63
+  - first:
+      213: 3410155850874975938
+    second: Ducks Pack(png)_64
+  - first:
+      213: -946338544749778210
+    second: Ducks Pack(png)_65
+  - first:
+      213: 6451271740933314185
+    second: Ducks Pack(png)_66
+  - first:
+      213: 3749194894275226472
+    second: Ducks Pack(png)_67
+  - first:
+      213: 4596467544599970901
+    second: Ducks Pack(png)_68
+  - first:
+      213: -3095037188205794661
+    second: Ducks Pack(png)_69
+  - first:
+      213: 9005026006315155914
+    second: Ducks Pack(png)_70
+  - first:
+      213: -4923561612405074657
+    second: Ducks Pack(png)_71
+  - first:
+      213: -1620008860410797380
+    second: Ducks Pack(png)_72
+  - first:
+      213: 6544917092587648599
+    second: Ducks Pack(png)_73
+  - first:
+      213: 7156037056861838690
+    second: Ducks Pack(png)_74
+  - first:
+      213: -5621964676707435069
+    second: Ducks Pack(png)_75
+  - first:
+      213: -8651390118574774648
+    second: Ducks Pack(png)_76
+  - first:
+      213: -1897753297933232377
+    second: Ducks Pack(png)_77
+  - first:
+      213: -5212357401365075485
+    second: Ducks Pack(png)_78
+  - first:
+      213: 2154275880743274292
+    second: Ducks Pack(png)_79
+  - first:
+      213: 1352936594763372701
+    second: Ducks Pack(png)_80
+  - first:
+      213: 706592957528347945
+    second: Ducks Pack(png)_81
+  - first:
+      213: -3550859705196984489
+    second: Ducks Pack(png)_82
+  - first:
+      213: -6837682693054515207
+    second: Ducks Pack(png)_83
+  - first:
+      213: -2335465684078756643
+    second: Ducks Pack(png)_84
+  - first:
+      213: -5643488191955771485
+    second: Ducks Pack(png)_85
+  - first:
+      213: -3846649573454694697
+    second: Ducks Pack(png)_86
+  - first:
+      213: 1038417019857067157
+    second: Ducks Pack(png)_87
+  - first:
+      213: -8503112585233595268
+    second: Ducks Pack(png)_88
+  - first:
+      213: -8427858493886556134
+    second: Ducks Pack(png)_89
+  - first:
+      213: -6574357596549056664
+    second: Ducks Pack(png)_90
+  - first:
+      213: 180377211948296824
+    second: Ducks Pack(png)_91
+  - first:
+      213: 1389647332763190016
+    second: Ducks Pack(png)_92
+  - first:
+      213: -1335778669871787196
+    second: Ducks Pack(png)_93
+  - first:
+      213: -1982592898512593695
+    second: Ducks Pack(png)_94
+  - first:
+      213: -3819015118742311842
+    second: Ducks Pack(png)_95
+  - first:
+      213: 2123781813734497526
+    second: Ducks Pack(png)_96
+  - first:
+      213: -7351820824835975310
+    second: Ducks Pack(png)_97
+  - first:
+      213: -2730418907741767854
+    second: Ducks Pack(png)_98
+  - first:
+      213: -2671081593727131670
+    second: Ducks Pack(png)_99
+  - first:
+      213: -2886989747514183192
+    second: Ducks Pack(png)_100
+  - first:
+      213: -4220164473260406700
+    second: Ducks Pack(png)_101
+  - first:
+      213: 8336904901859817737
+    second: Ducks Pack(png)_102
+  - first:
+      213: 5839445677169389635
+    second: Ducks Pack(png)_103
+  - first:
+      213: -3559912712833585098
+    second: Ducks Pack(png)_104
+  - first:
+      213: 3955674626534904255
+    second: Ducks Pack(png)_105
+  - first:
+      213: 7592942222283807397
+    second: Ducks Pack(png)_106
+  - first:
+      213: -1127106790685846595
+    second: Ducks Pack(png)_107
+  - first:
+      213: -1347583525645656435
+    second: Ducks Pack(png)_108
+  - first:
+      213: -7325704342074986506
+    second: Ducks Pack(png)_109
+  - first:
+      213: 5886418312252818983
+    second: Ducks Pack(png)_110
+  - first:
+      213: 2813183414293579890
+    second: Ducks Pack(png)_111
+  - first:
+      213: 1799349476444387144
+    second: Ducks Pack(png)_112
+  - first:
+      213: 5648869385482082836
+    second: Ducks Pack(png)_113
+  - first:
+      213: 1259540921620854544
+    second: Ducks Pack(png)_114
+  - first:
+      213: -8622160335356904078
+    second: Ducks Pack(png)_115
+  - first:
+      213: -7165741218705960861
+    second: Ducks Pack(png)_116
+  - first:
+      213: 4960731153601173753
+    second: Ducks Pack(png)_117
+  - first:
+      213: 4801590047710297583
+    second: Ducks Pack(png)_118
+  - first:
+      213: 1170891691188917308
+    second: Ducks Pack(png)_119
+  - first:
+      213: -1908171499971409743
+    second: Ducks Pack(png)_120
+  - first:
+      213: -3820161901432692701
+    second: Ducks Pack(png)_121
+  - first:
+      213: -6113047443101457285
+    second: Ducks Pack(png)_122
+  - first:
+      213: 6688877788953153118
+    second: Ducks Pack(png)_123
+  - first:
+      213: -4614213303693527539
+    second: Ducks Pack(png)_124
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ducks Pack(png)_0
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 6089
+        width: 325
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f589707f6fbbb3480800000000000000
+      internalID: -8918327967696316321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_1
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 6095
+        width: 325
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 183f1bd35b6a36300800000000000000
+      internalID: 244222102162502529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_2
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 6095
+        width: 324
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03d473b26e9ee8ee0800000000000000
+      internalID: -1256810071212995280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_3
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 6095
+        width: 324
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02df46da2f886a30800000000000000
+      internalID: 4208771265924682255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_4
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 6092
+        width: 325
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b7240bcc0a17580800000000000000
+      internalID: -8831100593305912439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_5
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 6086
+        width: 325
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 483629c7237bde0a0800000000000000
+      internalID: -6850618030694440060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_6
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 6071
+        width: 325
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5b526c1eb11d7d0800000000000000
+      internalID: -2895502428916566573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 5794
+        width: 324
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de21f4f333206b5b0800000000000000
+      internalID: -5353088687954521363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_8
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 5770
+        width: 324
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0cdc611500e435e0800000000000000
+      internalID: -1930672027863294964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_9
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 5746
+        width: 325
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c1640712c2967ab0800000000000000
+      internalID: -5010656173095624249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_10
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 5726
+        width: 324
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1349e43100a07cb70800000000000000
+      internalID: 8919108582470751281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_11
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 5787
+        width: 325
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe0be1bedf014730800000000000000
+      internalID: 3981480994714357496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_12
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 5394
+        width: 325
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea67110b2598ae610800000000000000
+      internalID: 1651283201618966190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_13
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 5400
+        width: 325
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa7ed6d386b85680800000000000000
+      internalID: -8766055997314794766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_14
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 5400
+        width: 325
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c134c95ea73e8c30800000000000000
+      internalID: 4363486310938456516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_15
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 5400
+        width: 325
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85293015d439ef260800000000000000
+      internalID: 7133300820082397784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_16
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 5397
+        width: 325
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41306a8a21af916c0800000000000000
+      internalID: -4172028621736246508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_17
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 5391
+        width: 325
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cf0a923fa17626a0800000000000000
+      internalID: -6474362417016336443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_18
+      rect:
+        serializedVersion: 2
+        x: 2238
+        y: 5376
+        width: 325
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc585a67708d61a20800000000000000
+      internalID: 3032848925647537615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_19
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 5061
+        width: 324
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab0485dbe7c6298d0800000000000000
+      internalID: -2841089123319004998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_20
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 5037
+        width: 324
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2212ee186b58da980800000000000000
+      internalID: -8526011500632071902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_21
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 5013
+        width: 325
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43a6ade0696d44c30800000000000000
+      internalID: 4342831880674634292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_22
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 4993
+        width: 324
+        height: 355
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f33696fd2e6f50b0800000000000000
+      internalID: -5737746256557100048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_23
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 5102
+        width: 162
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ece393d03f2c7ad0800000000000000
+      internalID: -2703233789574517534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_24
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 5108
+        width: 166
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c4d79e9b0b8ea2f0800000000000000
+      internalID: -959676788561685309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_25
+      rect:
+        serializedVersion: 2
+        x: 2212
+        y: 5096
+        width: 139
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b39fd02e3b4e7c070800000000000000
+      internalID: 8126715513856194875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_26
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 5082
+        width: 108
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ad1a956f1d5b5ba0800000000000000
+      internalID: -6099178880913236574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_27
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 4734
+        width: 325
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa51e5eb3a7b947a0800000000000000
+      internalID: -6392376282174319190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_28
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 4740
+        width: 325
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 304f9e2761b0ddf70800000000000000
+      internalID: 9213532603715023875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_29
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 4740
+        width: 324
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbbe506704455460800000000000000
+      internalID: 7229759575285480415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_30
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 4739
+        width: 324
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3385243d071bc36b0800000000000000
+      internalID: -5315178362065233869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_31
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 4736
+        width: 324
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1cb896d1ceccba0800000000000000
+      internalID: -6067214986905927237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_32
+      rect:
+        serializedVersion: 2
+        x: 1919
+        y: 4731
+        width: 324
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31683ac0f8c69200800000000000000
+      internalID: 186557371092853052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_33
+      rect:
+        serializedVersion: 2
+        x: 2253
+        y: 4715
+        width: 324
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43dafc38166eedfe0800000000000000
+      internalID: -1162238347317367500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 4438
+        width: 325
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f0bff9713f1b24e0800000000000000
+      internalID: -2005474911702765328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_35
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 4414
+        width: 325
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f8490929a6972980800000000000000
+      internalID: -8563710513139595016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_36
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 4391
+        width: 325
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd7eea17af6c9940800000000000000
+      internalID: 5304237224637660603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_37
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 4371
+        width: 325
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84161d08301148b90800000000000000
+      internalID: -7240643594161135288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_38
+      rect:
+        serializedVersion: 2
+        x: 1737
+        y: 4432
+        width: 324
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03cbbea56137fb780800000000000000
+      internalID: -8665080618185671632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_39
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 4550
+        width: 117
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c741127fb86e9a2b0800000000000000
+      internalID: -5572669575073295236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_40
+      rect:
+        serializedVersion: 2
+        x: 2146
+        y: 4415
+        width: 95
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2590ad5741afa57a0800000000000000
+      internalID: -6387518155688113838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_41
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 4053
+        width: 325
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d5d4cce9859066c0800000000000000
+      internalID: -4152154436820216359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_42
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 4059
+        width: 325
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7115a9d8efabdd370800000000000000
+      internalID: 8349034886674927895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_43
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 4059
+        width: 325
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f68f42d38f693d820800000000000000
+      internalID: 2941860974524954735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_44
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 4059
+        width: 325
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6b5fa2680c28e80800000000000000
+      internalID: -8177762290872502578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_45
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 4056
+        width: 324
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00442c3d833fe8c10800000000000000
+      internalID: 2057849505151337472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_46
+      rect:
+        serializedVersion: 2
+        x: 1970
+        y: 4050
+        width: 324
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6ed142f2c114ecf0800000000000000
+      internalID: -224034552475951507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_47
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 4034
+        width: 324
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 312fcc12bcce93040800000000000000
+      internalID: 4627990449289490963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_48
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 3758
+        width: 324
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e0bdc2f7e9b5d20800000000000000
+      internalID: 3268380223638015573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_49
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 3733
+        width: 324
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24490a761acde5f20800000000000000
+      internalID: 3413408153379836994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_50
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 3710
+        width: 324
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29d17783c739f86a0800000000000000
+      internalID: -6444770380011332206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_51
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 3690
+        width: 325
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f1a53626b734f7b0800000000000000
+      internalID: -5191463214986714632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_52
+      rect:
+        serializedVersion: 2
+        x: 1788
+        y: 3751
+        width: 324
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8951809d47505eb40800000000000000
+      internalID: 5468783321926866328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_53
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 3379
+        width: 325
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91ded039c8b9f0640800000000000000
+      internalID: 5048424735370505497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_54
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 3385
+        width: 325
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 601f0bd31e7100a90800000000000000
+      internalID: -7349848335698562810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_55
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 3385
+        width: 324
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f794b52ff28528f80800000000000000
+      internalID: -8105819416360695425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_56
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 3384
+        width: 324
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bceb34604a87a6710800000000000000
+      internalID: 1687293656278744779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_57
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 3382
+        width: 324
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 382d4464176061720800000000000000
+      internalID: 2816445700546810499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_58
+      rect:
+        serializedVersion: 2
+        x: 1934
+        y: 3376
+        width: 324
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd294bd82d339e430800000000000000
+      internalID: 3812635538959405789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_59
+      rect:
+        serializedVersion: 2
+        x: 2268
+        y: 3360
+        width: 324
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a653ef8072469f960800000000000000
+      internalID: 7636244762000766314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_60
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 3033
+        width: 324
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba28c72bd81169dd0800000000000000
+      internalID: -2479775244538314069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_61
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 3009
+        width: 324
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd28f21537f75d90800000000000000
+      internalID: -7108941679457456700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_62
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 2986
+        width: 325
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 715d1041dc4fc5f00800000000000000
+      internalID: 1107028770067436823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_63
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 2966
+        width: 324
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75b14c40660fe1390800000000000000
+      internalID: -7845569179875533993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_64
+      rect:
+        serializedVersion: 2
+        x: 1757
+        y: 3027
+        width: 324
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c67f18bdae435f20800000000000000
+      internalID: 3410155850874975938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_65
+      rect:
+        serializedVersion: 2
+        x: 2109
+        y: 3082
+        width: 139
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edaede28b1eedd2f0800000000000000
+      internalID: -946338544749778210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_66
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 3114
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98698d3d775878950800000000000000
+      internalID: 6451271740933314185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_67
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 2710
+        width: 325
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86babfa64e0d70430800000000000000
+      internalID: 3749194894275226472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_68
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 2716
+        width: 325
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5544e71f0eee9cf30800000000000000
+      internalID: 4596467544599970901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_69
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 2716
+        width: 324
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9aae5653183c05d0800000000000000
+      internalID: -3095037188205794661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_70
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 2715
+        width: 324
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac1c19b217748fc70800000000000000
+      internalID: 9005026006315155914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_71
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 2712
+        width: 324
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1598d6bccefbabb0800000000000000
+      internalID: -4923561612405074657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_72
+      rect:
+        serializedVersion: 2
+        x: 1943
+        y: 2707
+        width: 324
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb2aa3e46829489e0800000000000000
+      internalID: -1620008860410797380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_73
+      rect:
+        serializedVersion: 2
+        x: 2277
+        y: 2691
+        width: 324
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 756b1145b6734da50800000000000000
+      internalID: 6544917092587648599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_74
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 2414
+        width: 325
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d18c5f9c95f4360800000000000000
+      internalID: 7156037056861838690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_75
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 2390
+        width: 325
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd3f09b9e4caf1b0800000000000000
+      internalID: -5621964676707435069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_76
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 2367
+        width: 325
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 886a601368610f780800000000000000
+      internalID: -8651390118574774648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_77
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 2347
+        width: 324
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7071d552e63d9a5e0800000000000000
+      internalID: -1897753297933232377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_78
+      rect:
+        serializedVersion: 2
+        x: 1761
+        y: 2408
+        width: 324
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e9a1494f8cf9a7b0800000000000000
+      internalID: -5212357401365075485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_79
+      rect:
+        serializedVersion: 2
+        x: 2246
+        y: 2544
+        width: 89
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43705ebef7685ed10800000000000000
+      internalID: 2154275880743274292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_80
+      rect:
+        serializedVersion: 2
+        x: 2272
+        y: 2409
+        width: 160
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d985f7e2aa896c210800000000000000
+      internalID: 1352936594763372701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_81
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 2037
+        width: 325
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925154a1d825ec900800000000000000
+      internalID: 706592957528347945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_82
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 2043
+        width: 325
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7574c7059efc8bec0800000000000000
+      internalID: -3550859705196984489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_83
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 2043
+        width: 324
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f736a971dbab11a0800000000000000
+      internalID: -6837682693054515207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_84
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 2043
+        width: 324
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddcfe5b8552c69fd0800000000000000
+      internalID: -2335465684078756643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_85
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 2040
+        width: 324
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3af5d50d36d4ea1b0800000000000000
+      internalID: -5643488191955771485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_86
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 2034
+        width: 324
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d633d6e794fd9ac0800000000000000
+      internalID: -3846649573454694697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_87
+      rect:
+        serializedVersion: 2
+        x: 2308
+        y: 2018
+        width: 324
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59cdc4d17c2396e00800000000000000
+      internalID: 1038417019857067157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_88
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 1579
+        width: 325
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c748ff7b720eef980800000000000000
+      internalID: -8503112585233595268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_89
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1585
+        width: 325
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1812ae3a5b3a0b80800000000000000
+      internalID: -8427858493886556134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_90
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 1585
+        width: 324
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8677d4f299033c4a0800000000000000
+      internalID: -6574357596549056664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_91
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 1585
+        width: 324
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ae0cb5e14d08200800000000000000
+      internalID: 180377211948296824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_92
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 1582
+        width: 324
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0034b60f2e4094310800000000000000
+      internalID: 1389647332763190016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_93
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 1576
+        width: 324
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4439fb3806c567de0800000000000000
+      internalID: -1335778669871787196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_94
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 1561
+        width: 324
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ecd1f5534a6c74e0800000000000000
+      internalID: -1982592898512593695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_95
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 1228
+        width: 325
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ca487cbf1200bc0800000000000000
+      internalID: -3819015118742311842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_96
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 1204
+        width: 325
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fc541cae40397d10800000000000000
+      internalID: 2123781813734497526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_97
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1180
+        width: 325
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277155359e519f990800000000000000
+      internalID: -7351820824835975310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_98
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 1160
+        width: 325
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 257ba04487a9b1ad0800000000000000
+      internalID: -2730418907741767854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_99
+      rect:
+        serializedVersion: 2
+        x: 1802
+        y: 1221
+        width: 324
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef5fc741796eead0800000000000000
+      internalID: -2671081593727131670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_100
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 1494
+        width: 40
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e1f83dde1a5fe7d0800000000000000
+      internalID: -2886989747514183192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_101
+      rect:
+        serializedVersion: 2
+        x: 2321
+        y: 1326
+        width: 161
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 458079d55c6fe65c0800000000000000
+      internalID: -4220164473260406700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_102
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 926
+        width: 325
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 909319166d2a2b370800000000000000
+      internalID: 8336904901859817737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_103
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 932
+        width: 325
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3403fd897e0e90150800000000000000
+      internalID: 5839445677169389635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_104
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 932
+        width: 325
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6303828bf36a89ec0800000000000000
+      internalID: -3559912712833585098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_105
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 931
+        width: 325
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb193a16d1165e630800000000000000
+      internalID: 3955674626534904255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_106
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 928
+        width: 325
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aa9a47d8bc8f5960800000000000000
+      internalID: 7592942222283807397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_107
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 923
+        width: 325
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db35d357856bb50f0800000000000000
+      internalID: -1127106790685846595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_108
+      rect:
+        serializedVersion: 2
+        x: 2357
+        y: 907
+        width: 324
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8ed8b85ceb6c4de0800000000000000
+      internalID: -1347583525645656435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_109
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 630
+        width: 324
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff6511d6bed55a90800000000000000
+      internalID: -7325704342074986506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_110
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 606
+        width: 324
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7260f257442c0b150800000000000000
+      internalID: 5886418312252818983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_111
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 583
+        width: 324
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2784df0196f6a0720800000000000000
+      internalID: 2813183414293579890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_112
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 563
+        width: 325
+        height: 289
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847b042c0d298f810800000000000000
+      internalID: 1799349476444387144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_113
+      rect:
+        serializedVersion: 2
+        x: 1841
+        y: 624
+        width: 324
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41a1d30f6c0d46e40800000000000000
+      internalID: 5648869385482082836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_114
+      rect:
+        serializedVersion: 2
+        x: 2308
+        y: 762
+        width: 117
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 017774d7bc9ca7110800000000000000
+      internalID: 1259540921620854544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_115
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 396
+        width: 251
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27db69e6bdee75880800000000000000
+      internalID: -8622160335356904078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_116
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 404
+        width: 251
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36018aac35c2e8c90800000000000000
+      internalID: -7165741218705960861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_117
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 395
+        width: 252
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f89c9c73be08d440800000000000000
+      internalID: 4960731153601173753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_118
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 415
+        width: 251
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fedb2de55bca2a240800000000000000
+      internalID: 4801590047710297583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_119
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 168
+        width: 342
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3495cb1ac7df3010800000000000000
+      internalID: 1170891691188917308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_120
+      rect:
+        serializedVersion: 2
+        x: 2357
+        y: 212
+        width: 232
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b80ea57120d485e0800000000000000
+      internalID: -1908171499971409743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_121
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 120
+        width: 251
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320af90adfe0cfac0800000000000000
+      internalID: -3820161901432692701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_122
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 129
+        width: 251
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74e3d22db71a2ba0800000000000000
+      internalID: -6113047443101457285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_123
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 119
+        width: 252
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e8d8ce8eaa3dc50800000000000000
+      internalID: 6688877788953153118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ducks Pack(png)_124
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 139
+        width: 251
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d06377b827507ffb0800000000000000
+      internalID: -4614213303693527539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ducks Pack(png)_0: -8918327967696316321
+      Ducks Pack(png)_1: 244222102162502529
+      Ducks Pack(png)_10: 8919108582470751281
+      Ducks Pack(png)_100: -2886989747514183192
+      Ducks Pack(png)_101: -4220164473260406700
+      Ducks Pack(png)_102: 8336904901859817737
+      Ducks Pack(png)_103: 5839445677169389635
+      Ducks Pack(png)_104: -3559912712833585098
+      Ducks Pack(png)_105: 3955674626534904255
+      Ducks Pack(png)_106: 7592942222283807397
+      Ducks Pack(png)_107: -1127106790685846595
+      Ducks Pack(png)_108: -1347583525645656435
+      Ducks Pack(png)_109: -7325704342074986506
+      Ducks Pack(png)_11: 3981480994714357496
+      Ducks Pack(png)_110: 5886418312252818983
+      Ducks Pack(png)_111: 2813183414293579890
+      Ducks Pack(png)_112: 1799349476444387144
+      Ducks Pack(png)_113: 5648869385482082836
+      Ducks Pack(png)_114: 1259540921620854544
+      Ducks Pack(png)_115: -8622160335356904078
+      Ducks Pack(png)_116: -7165741218705960861
+      Ducks Pack(png)_117: 4960731153601173753
+      Ducks Pack(png)_118: 4801590047710297583
+      Ducks Pack(png)_119: 1170891691188917308
+      Ducks Pack(png)_12: 1651283201618966190
+      Ducks Pack(png)_120: -1908171499971409743
+      Ducks Pack(png)_121: -3820161901432692701
+      Ducks Pack(png)_122: -6113047443101457285
+      Ducks Pack(png)_123: 6688877788953153118
+      Ducks Pack(png)_124: -4614213303693527539
+      Ducks Pack(png)_13: -8766055997314794766
+      Ducks Pack(png)_14: 4363486310938456516
+      Ducks Pack(png)_15: 7133300820082397784
+      Ducks Pack(png)_16: -4172028621736246508
+      Ducks Pack(png)_17: -6474362417016336443
+      Ducks Pack(png)_18: 3032848925647537615
+      Ducks Pack(png)_19: -2841089123319004998
+      Ducks Pack(png)_2: -1256810071212995280
+      Ducks Pack(png)_20: -8526011500632071902
+      Ducks Pack(png)_21: 4342831880674634292
+      Ducks Pack(png)_22: -5737746256557100048
+      Ducks Pack(png)_23: -2703233789574517534
+      Ducks Pack(png)_24: -959676788561685309
+      Ducks Pack(png)_25: 8126715513856194875
+      Ducks Pack(png)_26: -6099178880913236574
+      Ducks Pack(png)_27: -6392376282174319190
+      Ducks Pack(png)_28: 9213532603715023875
+      Ducks Pack(png)_29: 7229759575285480415
+      Ducks Pack(png)_3: 4208771265924682255
+      Ducks Pack(png)_30: -5315178362065233869
+      Ducks Pack(png)_31: -6067214986905927237
+      Ducks Pack(png)_32: 186557371092853052
+      Ducks Pack(png)_33: -1162238347317367500
+      Ducks Pack(png)_34: -2005474911702765328
+      Ducks Pack(png)_35: -8563710513139595016
+      Ducks Pack(png)_36: 5304237224637660603
+      Ducks Pack(png)_37: -7240643594161135288
+      Ducks Pack(png)_38: -8665080618185671632
+      Ducks Pack(png)_39: -5572669575073295236
+      Ducks Pack(png)_4: -8831100593305912439
+      Ducks Pack(png)_40: -6387518155688113838
+      Ducks Pack(png)_41: -4152154436820216359
+      Ducks Pack(png)_42: 8349034886674927895
+      Ducks Pack(png)_43: 2941860974524954735
+      Ducks Pack(png)_44: -8177762290872502578
+      Ducks Pack(png)_45: 2057849505151337472
+      Ducks Pack(png)_46: -224034552475951507
+      Ducks Pack(png)_47: 4627990449289490963
+      Ducks Pack(png)_48: 3268380223638015573
+      Ducks Pack(png)_49: 3413408153379836994
+      Ducks Pack(png)_5: -6850618030694440060
+      Ducks Pack(png)_50: -6444770380011332206
+      Ducks Pack(png)_51: -5191463214986714632
+      Ducks Pack(png)_52: 5468783321926866328
+      Ducks Pack(png)_53: 5048424735370505497
+      Ducks Pack(png)_54: -7349848335698562810
+      Ducks Pack(png)_55: -8105819416360695425
+      Ducks Pack(png)_56: 1687293656278744779
+      Ducks Pack(png)_57: 2816445700546810499
+      Ducks Pack(png)_58: 3812635538959405789
+      Ducks Pack(png)_59: 7636244762000766314
+      Ducks Pack(png)_6: -2895502428916566573
+      Ducks Pack(png)_60: -2479775244538314069
+      Ducks Pack(png)_61: -7108941679457456700
+      Ducks Pack(png)_62: 1107028770067436823
+      Ducks Pack(png)_63: -7845569179875533993
+      Ducks Pack(png)_64: 3410155850874975938
+      Ducks Pack(png)_65: -946338544749778210
+      Ducks Pack(png)_66: 6451271740933314185
+      Ducks Pack(png)_67: 3749194894275226472
+      Ducks Pack(png)_68: 4596467544599970901
+      Ducks Pack(png)_69: -3095037188205794661
+      Ducks Pack(png)_7: -5353088687954521363
+      Ducks Pack(png)_70: 9005026006315155914
+      Ducks Pack(png)_71: -4923561612405074657
+      Ducks Pack(png)_72: -1620008860410797380
+      Ducks Pack(png)_73: 6544917092587648599
+      Ducks Pack(png)_74: 7156037056861838690
+      Ducks Pack(png)_75: -5621964676707435069
+      Ducks Pack(png)_76: -8651390118574774648
+      Ducks Pack(png)_77: -1897753297933232377
+      Ducks Pack(png)_78: -5212357401365075485
+      Ducks Pack(png)_79: 2154275880743274292
+      Ducks Pack(png)_8: -1930672027863294964
+      Ducks Pack(png)_80: 1352936594763372701
+      Ducks Pack(png)_81: 706592957528347945
+      Ducks Pack(png)_82: -3550859705196984489
+      Ducks Pack(png)_83: -6837682693054515207
+      Ducks Pack(png)_84: -2335465684078756643
+      Ducks Pack(png)_85: -5643488191955771485
+      Ducks Pack(png)_86: -3846649573454694697
+      Ducks Pack(png)_87: 1038417019857067157
+      Ducks Pack(png)_88: -8503112585233595268
+      Ducks Pack(png)_89: -8427858493886556134
+      Ducks Pack(png)_9: -5010656173095624249
+      Ducks Pack(png)_90: -6574357596549056664
+      Ducks Pack(png)_91: 180377211948296824
+      Ducks Pack(png)_92: 1389647332763190016
+      Ducks Pack(png)_93: -1335778669871787196
+      Ducks Pack(png)_94: -1982592898512593695
+      Ducks Pack(png)_95: -3819015118742311842
+      Ducks Pack(png)_96: 2123781813734497526
+      Ducks Pack(png)_97: -7351820824835975310
+      Ducks Pack(png)_98: -2730418907741767854
+      Ducks Pack(png)_99: -2671081593727131670
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

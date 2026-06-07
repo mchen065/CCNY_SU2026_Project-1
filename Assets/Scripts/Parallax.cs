@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    Material mat;
-    float distance;
-    [Range(0f, 0.5f)]
-    public float speed = 0.2f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Transform cam;
+    public float parallaxEffect = 0.5f;
+
+    private Vector3 startPos;
+
     void Start()
     {
-        mat = GetComponent<Renderer>().material;
+        startPos = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        distance += Time.deltaTime * speed;
-        mat.SetTextureOffset("_MainTex", Vector2.right * distance);
+        transform.position = new Vector3(
+            startPos.x + cam.position.x * parallaxEffect,
+            startPos.y,
+            startPos.z
+        );
     }
 }
