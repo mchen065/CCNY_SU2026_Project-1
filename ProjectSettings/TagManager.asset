@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Collectable
   - Collectible
+  - ScoreText
+  - WhirlPool Effect
   layers:
   - Default
   - TransparentFX
