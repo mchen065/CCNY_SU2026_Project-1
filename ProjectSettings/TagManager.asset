@@ -15,9 +15,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Water
+  - WhirlPool
+  - Duck
   - 
   - 
   - 
@@ -42,6 +42,18 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 360074415
+    locked: 0
+  - name: Water
+    uniqueID: 1999269683
+    locked: 0
+  - name: Effects
+    uniqueID: 203736053
+    locked: 0
+  - name: Player
+    uniqueID: 3511852777
     locked: 0
   m_RenderingLayers:
   - Default

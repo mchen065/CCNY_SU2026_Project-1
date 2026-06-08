@@ -2,36 +2,50 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public float lifetime = 3f;
-    public float value = 1f;
-    public PlayerWASD targetPlayer;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public enum CoinType
     {
-        targetPlayer = PlayerWASD.THEplayer;
-        GameManager._instance.allCoins.Add(this);
+        Normal,
+        SpeedBoost
     }
 
-    // Update is called once per frame
-    void Update()
+    [Header("Coin Settings")]
+    [SerializeField] private CoinType coinType = CoinType.Normal;
+    [SerializeField] private int scoreValue = 1;
+
+    [Header("Speed Coin Settings")]
+    [SerializeField] private float speedMultiplier = 2f;
+    [SerializeField] private float boostDuration = 4f;
+
+    private bool collected;
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        lifetime -= Time.deltaTime;
-        if (lifetime < 0f)
+        if (collected || !other.CompareTag("Player"))
         {
-            GameManager._instance.allCoins.Remove(this);
-            Destroy(this.gameObject);
+            return;
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "Player")
+
+        collected = true;
+
+        if (GameManager.Instance != null)
         {
-            PlayerWASD pS = collision.gameObject.GetComponent<PlayerWASD>();
-            Debug.Log("we found the player");
-            pS.AddScore(value);
-            collision.gameObject.SendMessage("AddScore");
-            Destroy(this.gameObject);
+            GameManager.Instance.AddScore(scoreValue);
         }
+
+        if (coinType == CoinType.SpeedBoost)
+        {
+            PlayerMovement movement =
+                other.GetComponent<PlayerMovement>();
+
+            if (movement != null)
+            {
+                movement.ApplySpeedBoost(
+                    speedMultiplier,
+                    boostDuration
+                );
+            }
+        }
+
+        Destroy(gameObject);
     }
 }

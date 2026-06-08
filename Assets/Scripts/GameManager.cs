@@ -1,78 +1,111 @@
-using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager _instance;
+    public static GameManager Instance { get; private set; }
 
-    public float gameTimer = 60f;
-    public float timer = 3f;
-    public TextMeshProUGUI scoreText;
-    public GameObject myObject;
-    public GameObject myPlayer;
-    public PlayerWASD playerScript;
-    public TextMeshProUGUI gameTimeText;
-    public PlayerWASD myWASD;
-    Rigidbody2D playerRB;
-    public bool gameOn;
-    public List<Coin> allCoins;
+    [Header("UI")]
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text timerText;
+    [SerializeField] private GameObject gameOverPanel;
+
+    [Header("Game Timer")]
+    [SerializeField] private float gameLengthSeconds = 60f;
+
+    private int score;
+    private float timeRemaining;
+
+    public bool GameEnded { get; private set; }
 
     private void Awake()
     {
-        _instance = this;
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        gameOn = true;
-        myPlayer = PlayerWASD.THEplayer.gameObject;
-
-        //PlayerScript=PlayerWASD.GetComponent<PlayerWASD>();
-        playerScript = PlayerWASD.THEplayer;
-
-        playerRB = myPlayer.GetComponent<Rigidbody2D>();
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        timer -= Time.deltaTime;
-        if (timer < 0)
+        if (Instance != null && Instance != this)
         {
-            Vector3 pos = new Vector3(Random.Range(-8f, 8f),
-                                      Random.Range(-4f, 4f), 0);
-            Instantiate(myObject, pos, Quaternion.identity);
-            timer = 3f;
+            Destroy(gameObject);
+            return;
         }
 
-        if (gameTimer > 0)
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
+
+        score = 0;
+        timeRemaining = gameLengthSeconds;
+        GameEnded = false;
+
+        if (gameOverPanel != null)
         {
-            gameTimer -= Time.deltaTime;
-            if (gameTimer <= 0)
-            {
-                myPlayer.SetActive(false);
-                playerScript.enabled = false;
-                playerRB.AddForce(Vector3.up * 100f);
-                playerRB.AddTorque(5f);
-
-                foreach (Coin c in allCoins)
-                {
-                    Destroy(c.gameObject);
-
-                }
-                Debug.Log("GAME OVER");
-                gameOn = false;
-
-
-            }
+            gameOverPanel.SetActive(false);
         }
-        gameTimeText.text = gameTimer.ToString("F1");
-        scoreText.text = myWASD.score.ToString();
+
+        UpdateScoreText();
+        UpdateTimerText();
+    }
+
+    private void Update()
+    {
+        if (GameEnded)
+        {
+            return;
+        }
+
+        timeRemaining -= Time.deltaTime;
+        timeRemaining = Mathf.Max(timeRemaining, 0f);
+
+        UpdateTimerText();
+
+        if (timeRemaining <= 0f)
+        {
+            EndGame();
+        }
+    }
+
+    public void AddScore(int amount)
+    {
+        if (GameEnded)
+        {
+            return;
+        }
+
+        score += amount;
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
+    }
+
+    private void UpdateTimerText()
+    {
+        if (timerText == null)
+        {
+            return;
+        }
+
+        int totalSeconds = Mathf.CeilToInt(timeRemaining);
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
+
+        timerText.text = $"Time: {minutes:00}:{seconds:00}";
+    }
+
+    private void EndGame()
+    {
+        GameEnded = true;
+
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+
+        Time.timeScale = 0f;
     }
 }
-
-
