@@ -5,40 +5,69 @@ using UnityEngine;
 public class CoinSpawner : MonoBehaviour
 {
     [Header("Prefabs")]
+
+    // Regular coin prefab.
     [SerializeField] private GameObject normalCoinPrefab;
+
+    // Special speed-boost coin prefab.
     [SerializeField] private GameObject speedCoinPrefab;
 
     [Header("Camera")]
+
+    // Coins spawn around the camera because the camera follows the duck.
     [SerializeField] private Transform cameraTransform;
 
     [Header("River Area")]
+
+    // The lowest Y position where coins may appear.
     [SerializeField] private float riverBottomY = -2f;
+
+    // The highest Y position where coins may appear.
     [SerializeField] private float riverTopY = 1f;
 
     [Header("Horizontal Spawn Distance")]
+
+    // Closest distance from the camera where a coin may spawn.
     [SerializeField] private float minimumDistance = 7f;
+
+    // Farthest distance from the camera where a coin may spawn.
     [SerializeField] private float maximumDistance = 12f;
 
-    [Header("Timing")]
+    [Header("Spawn Timing")]
+
+    // Minimum delay between coin spawns.
     [SerializeField] private float minimumSpawnDelay = 1f;
+
+    // Maximum delay between coin spawns.
     [SerializeField] private float maximumSpawnDelay = 2.5f;
 
     [Header("Special Coin")]
+
+    // 0.15 means a 15% chance of creating a speed coin.
     [Range(0f, 1f)]
     [SerializeField] private float speedCoinChance = 0.15f;
 
     [Header("Limits")]
+
+    // Maximum number of coins allowed at once.
     [SerializeField] private int maximumCoins = 12;
+
+    // Coins farther than this distance are deleted.
     [SerializeField] private float despawnDistance = 30f;
 
     [Header("Rendering")]
-    [SerializeField] private float coinZPosition = -2f;
 
+    // Set this to the visible Z position used by your coins.
+    [SerializeField] private float coinZPosition = -1f;
+
+    // Keeps track of all generated coins.
     private readonly List<GameObject> spawnedCoins =
         new List<GameObject>();
 
     private void Awake()
     {
+        // Automatically use the Main Camera when no camera
+        // was manually assigned.
         if (cameraTransform == null && Camera.main != null)
         {
             cameraTransform = Camera.main.transform;
@@ -47,8 +76,10 @@ public class CoinSpawner : MonoBehaviour
 
     private IEnumerator Start()
     {
+        // Continue generating coins until the object is disabled.
         while (true)
         {
+            // Choose a random delay.
             float delay = Random.Range(
                 minimumSpawnDelay,
                 maximumSpawnDelay
@@ -58,6 +89,7 @@ public class CoinSpawner : MonoBehaviour
 
             RemoveOldCoins();
 
+            // Do not spawn more coins after Game Over.
             if (GameManager.Instance != null &&
                 GameManager.Instance.GameEnded)
             {
@@ -78,18 +110,19 @@ public class CoinSpawner : MonoBehaviour
             return;
         }
 
-        // Coins may appear on either side because the duck
-        // can swim left or right.
+        // Randomly choose the left or right side of the camera.
         float side = Random.value < 0.5f ? -1f : 1f;
 
-        float xDistance = Random.Range(
+        // Choose a random horizontal distance.
+        float distance = Random.Range(
             minimumDistance,
             maximumDistance
         );
 
         float spawnX =
-            cameraTransform.position.x + xDistance * side;
+            cameraTransform.position.x + distance * side;
 
+        // Choose a random vertical position inside the river.
         float spawnY = Random.Range(
             riverBottomY,
             riverTopY
@@ -101,6 +134,7 @@ public class CoinSpawner : MonoBehaviour
             coinZPosition
         );
 
+        // Decide whether to spawn a normal or special coin.
         bool createSpeedCoin =
             speedCoinPrefab != null &&
             Random.value < speedCoinChance;
@@ -109,8 +143,8 @@ public class CoinSpawner : MonoBehaviour
             ? speedCoinPrefab
             : normalCoinPrefab;
 
-        // No parent is assigned, so the coin does not inherit
-        // movement from a parallax background.
+        // Create the selected coin in world space.
+        // It is not parented to the parallax background.
         GameObject newCoin = Instantiate(
             selectedPrefab,
             spawnPosition,
@@ -122,10 +156,12 @@ public class CoinSpawner : MonoBehaviour
 
     private void RemoveOldCoins()
     {
+        // Loop backward so entries can safely be removed.
         for (int i = spawnedCoins.Count - 1; i >= 0; i--)
         {
             GameObject coin = spawnedCoins[i];
 
+            // Remove empty list entries after coins are collected.
             if (coin == null)
             {
                 spawnedCoins.RemoveAt(i);
@@ -137,6 +173,7 @@ public class CoinSpawner : MonoBehaviour
                 cameraTransform.position.x
             );
 
+            // Delete coins that are far away from the camera.
             if (distanceFromCamera > despawnDistance)
             {
                 Destroy(coin);
