@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WhirlpoolPull
   pullAcceleration: 16
-  pullRadius: 2.5
+  minimumStrength: 0.35
 --- !u!61 &145000831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1959397324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4809c3289c12f496a8d9c3280434c169, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cb8d6ce052accd4d9b07d51d5dc06bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager1
   scoreText: {fileID: 716975118}
