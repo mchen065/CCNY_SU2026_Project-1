@@ -8,6 +8,10 @@ TagManager:
   - Collectible
   - ScoreText
   - WhirlPool Effect
+  - Meterorite
+  - Enemy
+  - Meteorite
+  - PowerBullet
   layers:
   - Default
   - TransparentFX

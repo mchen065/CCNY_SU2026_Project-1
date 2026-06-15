@@ -4,7 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class GolemEnemy : MonoBehaviour
 {
-    // The golem's gameplay states.
     public enum GolemState
     {
         Idle,
@@ -14,76 +13,56 @@ public class GolemEnemy : MonoBehaviour
         Death
     }
 
-    [Header("Astronaut")]
-    [SerializeField] private Transform astronaut;
+    [Header("Target")]
+    public Transform astronaut;
 
-    [Header("Chasing")]
-    [SerializeField] private float chaseSpeed = 3f;
+    [Header("Movement")]
+    public float chaseSpeed = 3f;
+    public float followDistance = 4f;
 
-    // How far behind the astronaut the golem stays.
-    [SerializeField] private float followDistance = 4f;
+    [Header("Shooting")]
+    public GameObject powerBulletPrefab;
+    public Transform firePoint;
+    public float minAttackDelay = 3f;
+    public float maxAttackDelay = 6f;
+    public float attackDuration = 0.6f;
 
-    [Header("Attack")]
-    [SerializeField] private GameObject powerBulletPrefab;
-    [SerializeField] private Transform firePoint;
+    [Header("Death / Hit")]
+    public GameObject poofEffectPrefab;
+    public float hitDuration = 0.3f;
+    public float deathDuration = 0.4f;
+    public float flyAwaySpeed = 8f;
+    public float spinSpeed = 720f;
 
-    [SerializeField] private float bulletSpeed = 7f;
-    [SerializeField] private float minimumAttackDelay = 3f;
-    [SerializeField] private float maximumAttackDelay = 6f;
-    [SerializeField] private float attackDuration = 0.6f;
-
-    [Header("Hit By Pebble")]
-    [SerializeField] private float hitAnimationDuration = 0.25f;
-
-    // Positive speed makes the golem fly right.
-    [SerializeField] private float flyAwaySpeed = 9f;
-
-    // Spins the golem while it flies away.
-    [SerializeField] private float spinSpeed = 720f;
-
-    [Header("Meteorite Death")]
-    [SerializeField] private float deathAnimationDuration = 0.4f;
-    [SerializeField] private GameObject poofEffectPrefab;
-
-    [Header("Exact Animator State Names")]
-    [SerializeField] private string idleAnimation = "enemyidle";
-    [SerializeField] private string runAnimation = "enemyrun";
-    [SerializeField] private string attackAnimation = "enemyattack";
-    [SerializeField] private string hitAnimation = "golemhit";
-    [SerializeField] private string deathAnimation = "enemydeath";
+    [Header("Animation Names")]
+    public string idleAnimation = "enemyidle";
+    public string runAnimation = "enemyrun";
+    public string attackAnimation = "enemyattack";
+    public string hitAnimation = "golemhit";
+    public string deathAnimation = "enemydeath";
 
     private Rigidbody2D rb;
     private Animator animator;
-    private Collider2D[] golemColliders;
+    private Collider2D[] colliders;
 
     private float attackTimer;
-    private bool stateLocked;
-    private bool destroyed;
+    private bool busy;
+    private bool dead;
 
-    private Coroutine activeRoutine;
-
-    // Invalid starting value makes the first animation play.
     private GolemState currentState = (GolemState)(-1);
-
-    public GolemState CurrentState => currentState;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        colliders = GetComponentsInChildren<Collider2D>();
 
-        golemColliders =
-            GetComponentsInChildren<Collider2D>();
-
-        // The golem floats in space.
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
 
-        // Automatically find the astronaut.
         if (astronaut == null)
         {
-            GameObject player =
-                GameObject.FindGameObjectWithTag("Player");
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null)
             {
@@ -97,12 +76,11 @@ public class GolemEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (destroyed)
+        if (dead)
         {
             return;
         }
 
-        // Stop when the game ends.
         if (SpaceGameManager.Instance != null &&
             SpaceGameManager.Instance.GameEnded)
         {
@@ -111,14 +89,7 @@ public class GolemEnemy : MonoBehaviour
             return;
         }
 
-        if (astronaut == null)
-        {
-            ChangeState(GolemState.Idle);
-            return;
-        }
-
-        // Attack, Hit, and Death control their own states.
-        if (stateLocked)
+        if (astronaut == null || busy)
         {
             return;
         }
@@ -127,136 +98,91 @@ public class GolemEnemy : MonoBehaviour
 
         if (attackTimer <= 0f)
         {
-            activeRoutine =
-                StartCoroutine(AttackRoutine());
-
-            return;
+            StartCoroutine(AttackRoutine());
         }
-
-        ChangeState(GolemState.Run);
+        else
+        {
+            ChangeState(GolemState.Run);
+        }
     }
 
     private void FixedUpdate()
     {
-        if (destroyed ||
-            stateLocked ||
-            astronaut == null ||
-            currentState != GolemState.Run)
+        if (dead || busy || astronaut == null)
         {
             return;
         }
 
-        // The golem follows behind the astronaut.
-        float desiredX =
-            astronaut.position.x - followDistance;
-
-        // Prevent the golem from moving backward to the left.
-        desiredX = Mathf.Max(
-            rb.position.x,
-            desiredX
-        );
-
         Vector2 targetPosition = new Vector2(
-            desiredX,
+            astronaut.position.x - followDistance,
             astronaut.position.y
         );
 
-        Vector2 nextPosition = Vector2.MoveTowards(
+        Vector2 newPosition = Vector2.MoveTowards(
             rb.position,
             targetPosition,
             chaseSpeed * Time.fixedDeltaTime
         );
 
-        rb.MovePosition(nextPosition);
+        rb.MovePosition(newPosition);
     }
 
     private IEnumerator AttackRoutine()
     {
-        stateLocked = true;
-
+        busy = true;
         rb.linearVelocity = Vector2.zero;
+
         ChangeState(GolemState.Attack);
 
-        // Wait until the middle of the attack animation.
-        yield return new WaitForSeconds(
-            attackDuration * 0.5f
-        );
+        yield return new WaitForSeconds(attackDuration * 0.5f);
 
-        ShootPowerBullet();
+        if (powerBulletPrefab != null && firePoint != null)
+        {
+            Instantiate(
+                powerBulletPrefab,
+                firePoint.position,
+                Quaternion.identity
+            );
+        }
 
-        yield return new WaitForSeconds(
-            attackDuration * 0.5f
-        );
-
-        stateLocked = false;
-        activeRoutine = null;
+        yield return new WaitForSeconds(attackDuration * 0.5f);
 
         ResetAttackTimer();
+        busy = false;
+
         ChangeState(GolemState.Run);
     }
 
-    private void ShootPowerBullet()
+    public void HitByMeteorite()
     {
-        if (powerBulletPrefab == null ||
-            firePoint == null ||
-            astronaut == null)
+        if (dead)
         {
             return;
         }
 
-        GameObject bullet = Instantiate(
-            powerBulletPrefab,
-            firePoint.position,
-            Quaternion.identity
-        );
-
-        Rigidbody2D bulletBody =
-            bullet.GetComponent<Rigidbody2D>();
-
-        if (bulletBody != null)
-        {
-            bulletBody.gravityScale = 0f;
-
-            Vector2 direction =
-                ((Vector2)astronaut.position -
-                 bulletBody.position).normalized;
-
-            bulletBody.linearVelocity =
-                direction * bulletSpeed;
-        }
-
-        Destroy(bullet, 5f);
+        StartCoroutine(DeathRoutine());
     }
 
-    // Called when the astronaut's pebble hits the golem.
-    public void TakePebbleHit()
+    public void HitByPlayer()
     {
-        if (destroyed)
+        if (dead)
         {
             return;
         }
 
-        StopActiveRoutine();
-
-        activeRoutine =
-            StartCoroutine(HitFlyAwayRoutine());
+        StartCoroutine(HitRoutine());
     }
 
-    private IEnumerator HitFlyAwayRoutine()
+    private IEnumerator HitRoutine()
     {
-        destroyed = true;
-        stateLocked = true;
-
-        rb.linearVelocity = Vector2.zero;
-        ChangeState(GolemState.Hit);
+        dead = true;
+        busy = true;
 
         DisableColliders();
+        ChangeState(GolemState.Hit);
 
-        yield return new WaitForSeconds(
-            hitAnimationDuration
-        );
+        yield return new WaitForSeconds(hitDuration);
 
-        // Spin and fly toward the right side of the screen.
         rb.freezeRotation = false;
         rb.angularVelocity = spinSpeed;
 
@@ -268,33 +194,17 @@ public class GolemEnemy : MonoBehaviour
         Destroy(gameObject, 2.5f);
     }
 
-    // Called when the golem touches a meteorite.
-    public void DieFromMeteorite()
-    {
-        if (destroyed)
-        {
-            return;
-        }
-
-        StopActiveRoutine();
-
-        activeRoutine =
-            StartCoroutine(DeathRoutine());
-    }
-
     private IEnumerator DeathRoutine()
     {
-        destroyed = true;
-        stateLocked = true;
+        dead = true;
+        busy = true;
 
         rb.linearVelocity = Vector2.zero;
-        ChangeState(GolemState.Death);
 
         DisableColliders();
+        ChangeState(GolemState.Death);
 
-        yield return new WaitForSeconds(
-            deathAnimationDuration
-        );
+        yield return new WaitForSeconds(deathDuration);
 
         if (poofEffectPrefab != null)
         {
@@ -310,26 +220,14 @@ public class GolemEnemy : MonoBehaviour
 
     private void ResetAttackTimer()
     {
-        attackTimer = Random.Range(
-            minimumAttackDelay,
-            maximumAttackDelay
-        );
-    }
-
-    private void StopActiveRoutine()
-    {
-        if (activeRoutine != null)
-        {
-            StopCoroutine(activeRoutine);
-            activeRoutine = null;
-        }
+        attackTimer = Random.Range(minAttackDelay, maxAttackDelay);
     }
 
     private void DisableColliders()
     {
-        foreach (Collider2D golemCollider in golemColliders)
+        foreach (Collider2D col in colliders)
         {
-            golemCollider.enabled = false;
+            col.enabled = false;
         }
     }
 
@@ -369,32 +267,21 @@ public class GolemEnemy : MonoBehaviour
                 animator.Play(deathAnimation);
                 break;
         }
-
-        Debug.Log($"Golem state: {currentState}");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Pebble makes the golem spin and fly right.
-        if (other.CompareTag("StoneProjectile"))
+        if (other.GetComponentInParent<Meterorite>() != null)
         {
-            Destroy(other.gameObject);
-            TakePebbleHit();
-            return;
-        }
-
-        // Meteorite makes the golem play Death and go poof.
-        if (other.CompareTag("Meteorite"))
-        {
-            DieFromMeteorite();
+            HitByMeteorite();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Meteorite"))
+        if (collision.transform.GetComponentInParent<Meterorite>() != null)
         {
-            DieFromMeteorite();
+            HitByMeteorite();
         }
     }
 }

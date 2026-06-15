@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class AstronautMovement : MonoBehaviour
@@ -9,50 +10,47 @@ public class AstronautMovement : MonoBehaviour
         Idle,
         Walking,
         Shifting,
-        Shooting,
         Hit
     }
 
     [Header("Movement")]
-    [SerializeField] private float forwardSpeed = 3f;
-    [SerializeField] private float verticalSpeed = 5f;
+    public float forwardSpeed = 3f;
+    public float verticalSpeed = 5f;
+    public float bottomLimit = -4f;
+    public float topLimit = 4f;
+
+    [Header("Health")]
+    public int maxHealth = 3;
+    public Image healthBar;
+    public float damageCooldown = 1f;
 
     [Header("Shifting")]
-    [SerializeField] private Transform visual;
-    [SerializeField] private float shiftedSize = 0.5f;
+    public Transform visual;
+    public float shiftedSize = 0.5f;
 
-    [Header("Shooting")]
-    [SerializeField] private GameObject pebblePrefab;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private KeyCode shootKey = KeyCode.F;
-
-    [Header("Animation Names")]
-    [SerializeField] private string idleAnimation = "Idle";
-    [SerializeField] private string walkingAnimation = "Walking";
-    [SerializeField] private string shiftingAnimation = "Shifting";
+    [Header("Animations")]
+    public string idleAnimation = "Idle";
+    public string walkingAnimation = "Walking";
+    public string shiftingAnimation = "Shifting";
 
     private Rigidbody2D rb;
     private Animator animator;
 
+    private int currentHealth;
     private float verticalInput;
     private Vector3 normalScale;
 
-    private bool shifting;
-    private bool hit;
+    private bool canTakeDamage = true;
+    private bool isShifting;
+    private bool isHit;
 
-    private int pebbleAmmo;
-
-    private AstronautState currentState;
-
-    public AstronautState CurrentState => currentState;
-    public int PebbleAmmo => pebbleAmmo;
+    private AstronautState currentState = AstronautState.Idle;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
 
-        // No gravity in space.
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
 
@@ -65,7 +63,21 @@ public class AstronautMovement : MonoBehaviour
         {
             normalScale = visual.localScale;
         }
+    }
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+
+        if (healthBar != null)
+        {
+            healthBar.type = Image.Type.Filled;
+            healthBar.fillMethod = Image.FillMethod.Horizontal;
+            healthBar.fillOrigin = 0;
+            healthBar.fillAmount = 1f;
+        }
+
+        UpdateHealthBar();
         ChangeState(AstronautState.Idle);
     }
 
@@ -78,33 +90,22 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
-        // Only W/S or Up/Down control vertical movement.
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        // Hold Space to shrink through narrow gaps.
-        shifting = Input.GetKey(KeyCode.Space) && !hit;
+        isShifting = Input.GetKey(KeyCode.Space) && !isHit;
 
         if (visual != null)
         {
-            visual.localScale = shifting
+            visual.localScale = isShifting
                 ? normalScale * shiftedSize
                 : normalScale;
         }
 
-        // Fire one pebble.
-        if (Input.GetKeyDown(shootKey) &&
-            pebbleAmmo > 0 &&
-            !hit)
-        {
-            ShootPebble();
-        }
-
-        // Choose the state and animation.
-        if (hit)
+        if (isHit)
         {
             ChangeState(AstronautState.Hit);
         }
-        else if (shifting)
+        else if (isShifting)
         {
             ChangeState(AstronautState.Shifting);
         }
@@ -127,64 +128,119 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
-        if (hit)
+        if (isHit)
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
 
-        // Constantly travel right while the player controls Y.
         rb.linearVelocity = new Vector2(
             forwardSpeed,
             verticalInput * verticalSpeed
         );
+
+        Vector2 position = rb.position;
+        position.y = Mathf.Clamp(position.y, bottomLimit, topLimit);
+        rb.position = position;
     }
 
-    public void CollectPebble(int amount = 1)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        pebbleAmmo += Mathf.Max(0, amount);
+        if (other.GetComponentInParent<Meterorite>() != null)
+        {
+            TakeDamage(1);
+            return;
+        }
 
-        Debug.Log($"Pebble ammo: {pebbleAmmo}");
+        if (other.GetComponentInParent<GolemEnemy>() != null)
+        {
+            TakeDamage(1);
+            return;
+        }
+
+        if (other.GetComponentInParent<PowerBullet>() != null)
+        {
+            TakeDamage(1);
+            Destroy(other.GetComponentInParent<PowerBullet>().gameObject);
+            return;
+        }
+
+        if (other.CompareTag("Spaceship"))
+        {
+            if (SpaceGameManager.Instance != null)
+            {
+                SpaceGameManager.Instance.WinGame();
+            }
+        }
     }
 
-    private void ShootPebble()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (pebblePrefab == null || firePoint == null)
+        if (collision.transform.GetComponentInParent<Meterorite>() != null)
+        {
+            TakeDamage(1);
+            return;
+        }
+
+        if (collision.transform.GetComponentInParent<GolemEnemy>() != null)
+        {
+            TakeDamage(1);
+        }
+    }
+
+    private void TakeDamage(int amount)
+    {
+        if (!canTakeDamage)
         {
             return;
         }
 
-        pebbleAmmo--;
-
-        ChangeState(AstronautState.Shooting);
-
-        Instantiate(
-            pebblePrefab,
-            firePoint.position,
-            Quaternion.identity
-        );
-    }
-
-    public void TakeHit()
-    {
-        if (!hit)
+        if (SpaceGameManager.Instance != null &&
+            SpaceGameManager.Instance.GameEnded)
         {
-            StartCoroutine(HitRoutine());
+            return;
         }
+
+        currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        Debug.Log("Astronaut health: " + currentHealth + "/" + maxHealth);
+
+        UpdateHealthBar();
+
+        if (currentHealth <= 0)
+        {
+            if (SpaceGameManager.Instance != null)
+            {
+                SpaceGameManager.Instance.LoseGame();
+            }
+
+            return;
+        }
+
+        StartCoroutine(HitRoutine());
     }
 
     private IEnumerator HitRoutine()
     {
-        hit = true;
+        canTakeDamage = false;
+        isHit = true;
 
-        if (SpaceGameManager.Instance != null)
+        yield return new WaitForSeconds(0.4f);
+
+        isHit = false;
+
+        yield return new WaitForSeconds(damageCooldown);
+
+        canTakeDamage = true;
+    }
+
+    private void UpdateHealthBar()
+    {
+        if (healthBar != null)
         {
-            SpaceGameManager.Instance.LoseLife();
+            healthBar.fillAmount = (float)currentHealth / maxHealth;
         }
-
-        yield return new WaitForSeconds(0.5f);
-
-        hit = false;
     }
 
     private void ChangeState(AstronautState newState)
@@ -201,56 +257,21 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
-        switch (currentState)
+        if (currentState == AstronautState.Idle)
         {
-            case AstronautState.Idle:
-                animator.Play(idleAnimation);
-                break;
-
-            case AstronautState.Walking:
-                animator.Play(walkingAnimation);
-                break;
-
-            case AstronautState.Shifting:
-                animator.Play(shiftingAnimation);
-                break;
-
-            case AstronautState.Shooting:
-                animator.Play(idleAnimation);
-                break;
-
-            case AstronautState.Hit:
-                animator.Play(idleAnimation);
-                break;
+            animator.Play(idleAnimation);
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Meteorite") ||
-            other.CompareTag("PowerBullet"))
+        else if (currentState == AstronautState.Walking)
         {
-            TakeHit();
-
-            if (other.CompareTag("PowerBullet"))
-            {
-                Destroy(other.gameObject);
-            }
-
-            return;
+            animator.Play(walkingAnimation);
         }
-
-        if (other.CompareTag("StonePickup"))
+        else if (currentState == AstronautState.Shifting)
         {
-            CollectPebble();
-            Destroy(other.gameObject);
-            return;
+            animator.Play(shiftingAnimation);
         }
-
-        if (other.CompareTag("Spaceship") &&
-            SpaceGameManager.Instance != null)
+        else if (currentState == AstronautState.Hit)
         {
-            SpaceGameManager.Instance.WinGame();
+            animator.Play(idleAnimation);
         }
     }
 }

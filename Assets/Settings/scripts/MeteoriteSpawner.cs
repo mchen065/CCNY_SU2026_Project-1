@@ -2,33 +2,27 @@ using UnityEngine;
 
 public class MeteoriteSpawner : MonoBehaviour
 {
-    [Header("Meteorite Prefabs")]
+    [Header("Prefab")]
+    // Drag the blue prefab asset from the Project window here.
+    [SerializeField] private GameObject meteoritePrefab;
 
-    // Drag prefab assets from the PROJECT window here.
-    // Do not drag meteorites from the Hierarchy.
-    [SerializeField] private GameObject[] meteoritePrefabs;
+    [Header("Spawning")]
+    [SerializeField] private float minimumDelay = 0.8f;
+    [SerializeField] private float maximumDelay = 1.5f;
 
-    [Header("Spawn Timing")]
-    [SerializeField] private float minimumSpawnDelay = 0.8f;
-    [SerializeField] private float maximumSpawnDelay = 1.5f;
+    [SerializeField] private int minimumAmount = 1;
+    [SerializeField] private int maximumAmount = 3;
 
-    [Header("Meteorites Per Wave")]
-    [SerializeField] private int minimumMeteorites = 1;
-    [SerializeField] private int maximumMeteorites = 3;
-
-    [Header("Spawn Area")]
     [SerializeField] private float minimumY = -4f;
     [SerializeField] private float maximumY = 4f;
-
-    [Header("Spacing")]
-    [SerializeField] private float horizontalSpacing = 1.5f;
+    [SerializeField] private float spacing = 1.5f;
 
     private float timer;
-    private float nextSpawnDelay;
+    private float nextDelay;
 
     private void Start()
     {
-        ChooseNextSpawnDelay();
+        ChooseNextDelay();
     }
 
     private void Update()
@@ -41,22 +35,22 @@ public class MeteoriteSpawner : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer >= nextSpawnDelay)
+        if (timer >= nextDelay)
         {
-            SpawnMeteoriteWave();
+            SpawnWave();
 
             timer = 0f;
-            ChooseNextSpawnDelay();
+            ChooseNextDelay();
         }
     }
 
-    private void SpawnMeteoriteWave()
+    private void SpawnWave()
     {
-        if (meteoritePrefabs == null ||
-            meteoritePrefabs.Length == 0)
+        if (meteoritePrefab == null)
         {
             Debug.LogError(
-                "No meteorite prefabs are assigned.",
+                "Meteorite Prefab is missing. " +
+                "Assign the blue prefab from the Project window.",
                 this
             );
 
@@ -64,35 +58,19 @@ public class MeteoriteSpawner : MonoBehaviour
         }
 
         int amount = Random.Range(
-            minimumMeteorites,
-            maximumMeteorites + 1
+            minimumAmount,
+            maximumAmount + 1
         );
 
         for (int i = 0; i < amount; i++)
         {
-            GameObject meteoritePrefab =
-                GetRandomValidMeteorite();
-
-            // Stop safely if every array element is missing.
-            if (meteoritePrefab == null)
-            {
-                Debug.LogError(
-                    "Meteorite Prefabs contains missing or destroyed objects. " +
-                    "Drag prefab assets from the Project window into the array.",
-                    this
-                );
-
-                return;
-            }
-
             float randomY = Random.Range(
                 minimumY,
                 maximumY
             );
 
             Vector3 spawnPosition = new Vector3(
-                transform.position.x +
-                i * horizontalSpacing,
+                transform.position.x + i * spacing,
                 randomY,
                 transform.position.z
             );
@@ -105,36 +83,11 @@ public class MeteoriteSpawner : MonoBehaviour
         }
     }
 
-    private GameObject GetRandomValidMeteorite()
+    private void ChooseNextDelay()
     {
-        // Begin checking from a random array position.
-        int startingIndex =
-            Random.Range(0, meteoritePrefabs.Length);
-
-        for (int i = 0; i < meteoritePrefabs.Length; i++)
-        {
-            int index =
-                (startingIndex + i) %
-                meteoritePrefabs.Length;
-
-            GameObject prefab =
-                meteoritePrefabs[index];
-
-            // Unity destroyed objects compare as null.
-            if (prefab != null)
-            {
-                return prefab;
-            }
-        }
-
-        return null;
-    }
-
-    private void ChooseNextSpawnDelay()
-    {
-        nextSpawnDelay = Random.Range(
-            minimumSpawnDelay,
-            maximumSpawnDelay
+        nextDelay = Random.Range(
+            minimumDelay,
+            maximumDelay
         );
     }
 }
