@@ -1,54 +1,92 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GolemSpawner : MonoBehaviour
 {
+    [Header("Required")]
     [SerializeField] private GameObject golemPrefab;
     [SerializeField] private Transform astronaut;
 
-    [Header("Amounts")]
+    [Header("Amount")]
     [SerializeField] private int startingGolems = 3;
     [SerializeField] private int maximumGolems = 5;
 
     [Header("Spawn Area")]
-    [SerializeField] private float minimumDistanceBehind = 7f;
-    [SerializeField] private float maximumDistanceBehind = 12f;
+    [SerializeField] private float minimumDistance = 4f;
+    [SerializeField] private float maximumDistance = 8f;
     [SerializeField] private float minimumY = -4f;
     [SerializeField] private float maximumY = 4f;
 
     [Header("Respawning")]
-    [SerializeField] private float respawnDelay = 3f;
+    [SerializeField] private float respawnDelay = 4f;
 
     private readonly List<GameObject> activeGolems =
         new List<GameObject>();
 
-    private float respawnTimer;
-
     private void Start()
     {
+        if (astronaut == null)
+        {
+            AstronautMovement player =
+                FindObjectOfType<AstronautMovement>();
+
+            if (player != null)
+            {
+                astronaut = player.transform;
+            }
+        }
+
+        if (golemPrefab == null)
+        {
+            Debug.LogError(
+                "Golem Prefab is not assigned.",
+                this
+            );
+
+            return;
+        }
+
+        if (astronaut == null)
+        {
+            Debug.LogError(
+                "Astronaut was not found.",
+                this
+            );
+
+            return;
+        }
+
         for (int i = 0; i < startingGolems; i++)
         {
             SpawnGolem();
         }
+
+        StartCoroutine(RespawnLoop());
     }
 
-    private void Update()
+    private IEnumerator RespawnLoop()
     {
-        activeGolems.RemoveAll(
-            golem => golem == null
-        );
-
-        if (activeGolems.Count >= maximumGolems)
+        while (true)
         {
-            return;
-        }
+            yield return new WaitForSeconds(
+                respawnDelay
+            );
 
-        respawnTimer += Time.deltaTime;
+            if (SpaceGameManager.Instance != null &&
+                SpaceGameManager.Instance.GameEnded)
+            {
+                yield break;
+            }
 
-        if (respawnTimer >= respawnDelay)
-        {
-            SpawnGolem();
-            respawnTimer = 0f;
+            activeGolems.RemoveAll(
+                golem => golem == null
+            );
+
+            if (activeGolems.Count < maximumGolems)
+            {
+                SpawnGolem();
+            }
         }
     }
 
@@ -63,8 +101,8 @@ public class GolemSpawner : MonoBehaviour
         float spawnX =
             astronaut.position.x -
             Random.Range(
-                minimumDistanceBehind,
-                maximumDistanceBehind
+                minimumDistance,
+                maximumDistance
             );
 
         float spawnY = Random.Range(
@@ -72,12 +110,36 @@ public class GolemSpawner : MonoBehaviour
             maximumY
         );
 
-        GameObject golem = Instantiate(
+        GameObject newGolem = Instantiate(
             golemPrefab,
-            new Vector3(spawnX, spawnY, 0f),
+            new Vector3(
+                spawnX,
+                spawnY,
+                astronaut.position.z
+            ),
             Quaternion.identity
         );
 
-        activeGolems.Add(golem);
+        GolemEnemy enemy =
+            newGolem.GetComponent<GolemEnemy>();
+
+        if (enemy != null)
+        {
+            enemy.SetTarget(astronaut);
+        }
+        else
+        {
+            Debug.LogError(
+                "The golem prefab does not have GolemEnemy.",
+                newGolem
+            );
+        }
+
+        activeGolems.Add(newGolem);
+
+        Debug.Log(
+            "Golem spawned: " +
+            newGolem.name
+        );
     }
 }

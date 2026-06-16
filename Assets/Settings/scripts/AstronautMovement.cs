@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class AstronautMovement : MonoBehaviour
 {
     public enum AstronautState
@@ -14,45 +15,75 @@ public class AstronautMovement : MonoBehaviour
     }
 
     [Header("Movement")]
-    public float forwardSpeed = 3f;
-    public float verticalSpeed = 5f;
-    public float bottomLimit = -4f;
-    public float topLimit = 4f;
+    [SerializeField] private float forwardSpeed = 2f;
+    [SerializeField] private float verticalSpeed = 6f;
+    [SerializeField] private float bottomLimit = -4f;
+    [SerializeField] private float topLimit = 4f;
 
     [Header("Health")]
-    public int maxHealth = 3;
-    public Image healthBar;
-    public float damageCooldown = 1f;
+    [SerializeField] private int maxHealth = 3;
+
+    // Drag the three-heart UI Image into this field.
+    [SerializeField] private Image healthBar;
+
+    // How long the astronaut cannot take damage after a hit.
+    [SerializeField] private float damageCooldown = 1f;
+
+    // How long the astronaut remains in the Hit state.
+    [SerializeField] private float hitDuration = 0.3f;
 
     [Header("Shifting")]
-    public Transform visual;
-    public float shiftedSize = 0.5f;
+    [SerializeField] private Transform visual;
 
-    [Header("Animations")]
-    public string idleAnimation = "Idle";
-    public string walkingAnimation = "Walking";
-    public string shiftingAnimation = "Shifting";
+    // Half size by default.
+    [Range(0.2f, 1f)]
+    [SerializeField] private float shiftedSize = 0.5f;
+
+    [Header("Animation Names")]
+    [SerializeField] private string idleAnimation = "Idle";
+    [SerializeField] private string walkingAnimation = "Walking";
+    [SerializeField] private string shiftingAnimation = "Shifting";
 
     private Rigidbody2D rb;
+    private BoxCollider2D hitbox;
     private Animator animator;
 
     private int currentHealth;
     private float verticalInput;
-    private Vector3 normalScale;
 
-    private bool canTakeDamage = true;
+    private Vector3 normalVisualScale;
+    private Vector2 normalHitboxSize;
+    private Vector2 normalHitboxOffset;
+
     private bool isShifting;
     private bool isHit;
+    private bool canTakeDamage = true;
 
-    private AstronautState currentState = AstronautState.Idle;
+    private AstronautState currentState =
+        (AstronautState)(-1);
+
+    // Other scripts can check whether the astronaut is shifting.
+    public bool IsShifting => isShifting;
+
+    // Other scripts can read the astronaut's health.
+    public int CurrentHealth => currentHealth;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        hitbox = GetComponent<BoxCollider2D>();
         animator = GetComponentInChildren<Animator>();
 
+        // Space physics.
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.simulated = true;
         rb.gravityScale = 0f;
-        rb.freezeRotation = true;
+        rb.linearDamping = 0f;
+
+        // Allow movement on X and Y.
+        // Only prevent unwanted rotation.
+        rb.constraints =
+            RigidbodyConstraints2D.FreezeRotation;
 
         if (visual == null && animator != null)
         {
@@ -61,8 +92,11 @@ public class AstronautMovement : MonoBehaviour
 
         if (visual != null)
         {
-            normalScale = visual.localScale;
+            normalVisualScale = visual.localScale;
         }
+
+        normalHitboxSize = hitbox.size;
+        normalHitboxOffset = hitbox.offset;
     }
 
     private void Start()
@@ -71,10 +105,21 @@ public class AstronautMovement : MonoBehaviour
 
         if (healthBar != null)
         {
+            // Required for fillAmount to change visually.
             healthBar.type = Image.Type.Filled;
-            healthBar.fillMethod = Image.FillMethod.Horizontal;
+            healthBar.fillMethod =
+                Image.FillMethod.Horizontal;
+
+            // Fill begins from the left side.
             healthBar.fillOrigin = 0;
             healthBar.fillAmount = 1f;
+        }
+        else
+        {
+            Debug.LogError(
+                "Health Bar is not assigned on AstronautMovement.",
+                this
+            );
         }
 
         UpdateHealthBar();
@@ -90,15 +135,18 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
-        verticalInput = Input.GetAxisRaw("Vertical");
+        // W/S or Up/Down.
+        // A and D are ignored.
+        verticalInput =
+            Input.GetAxisRaw("Vertical");
 
-        isShifting = Input.GetKey(KeyCode.Space) && !isHit;
+        bool wantsToShift =
+            Input.GetKey(KeyCode.Space) &&
+            !isHit;
 
-        if (visual != null)
+        if (wantsToShift != isShifting)
         {
-            visual.localScale = isShifting
-                ? normalScale * shiftedSize
-                : normalScale;
+            SetShifting(wantsToShift);
         }
 
         if (isHit)
@@ -134,61 +182,119 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
+        // Constantly travel right.
+        // The player controls only the vertical movement.
         rb.linearVelocity = new Vector2(
             forwardSpeed,
             verticalInput * verticalSpeed
         );
 
+        // Keep the astronaut inside the vertical play area.
         Vector2 position = rb.position;
-        position.y = Mathf.Clamp(position.y, bottomLimit, topLimit);
+
+        position.y = Mathf.Clamp(
+            position.y,
+            bottomLimit,
+            topLimit
+        );
+
         rb.position = position;
+    }
+
+    private void SetShifting(bool shifting)
+    {
+        isShifting = shifting;
+
+        float sizeMultiplier =
+            isShifting ? shiftedSize : 1f;
+
+        // Change the visual size.
+        if (visual != null)
+        {
+            visual.localScale =
+                normalVisualScale * sizeMultiplier;
+        }
+
+        // Change the actual collision box size.
+        hitbox.size =
+            normalHitboxSize * sizeMultiplier;
+
+        hitbox.offset =
+            normalHitboxOffset * sizeMultiplier;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponentInParent<Meterorite>() != null)
-        {
-            TakeDamage(1);
-            return;
-        }
+        HandleContact(other.transform);
+    }
 
-        if (other.GetComponentInParent<GolemEnemy>() != null)
-        {
-            TakeDamage(1);
-            return;
-        }
+    private void OnCollisionEnter2D(
+        Collision2D collision
+    )
+    {
+        HandleContact(collision.transform);
+    }
 
-        if (other.GetComponentInParent<PowerBullet>() != null)
-        {
-            TakeDamage(1);
-            Destroy(other.GetComponentInParent<PowerBullet>().gameObject);
-            return;
-        }
+    private void HandleContact(Transform objectHit)
+    {
+        // The spaceship is checked first so it never causes damage.
+        SpaceshipGoal spaceship =
+            objectHit.GetComponentInParent<SpaceshipGoal>();
 
-        if (other.CompareTag("Spaceship"))
+        if (spaceship != null)
         {
             if (SpaceGameManager.Instance != null)
             {
                 SpaceGameManager.Instance.WinGame();
             }
-        }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.GetComponentInParent<Meterorite>() != null)
+            return;
+        }
+
+        // Enemy power bullet.
+        PowerBullet bullet =
+            objectHit.GetComponentInParent<PowerBullet>();
+
+        if (bullet != null)
+        {
+            TakeDamage(1);
+            Destroy(bullet.gameObject);
+            return;
+        }
+
+        // Golem enemy.
+        GolemEnemy golem =
+            objectHit.GetComponentInParent<GolemEnemy>();
+
+        if (golem != null)
         {
             TakeDamage(1);
             return;
         }
 
-        if (collision.transform.GetComponentInParent<GolemEnemy>() != null)
+        // Loose bouncing meteorite.
+        LooseMeteorite looseMeteorite =
+            objectHit.GetComponentInParent<LooseMeteorite>();
+
+        if (looseMeteorite != null)
+        {
+            TakeDamage(1);
+            return;
+        }
+
+        // Supports any remaining Meteorite.cs objects.
+        Meterorite meteorite =
+            objectHit.GetComponentInParent<Meterorite>();
+
+        if (meteorite != null)
         {
             TakeDamage(1);
         }
     }
 
-    private void TakeDamage(int amount)
+    // Public so LooseMeteorite.cs can call:
+    // astronaut.TakeDamage(damage);
+    public void TakeDamage(int amount = 1)
     {
         if (!canTakeDamage)
         {
@@ -201,15 +307,31 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
-        currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        // Lock damage immediately so one collision
+        // cannot remove several hearts.
+        canTakeDamage = false;
 
-        Debug.Log("Astronaut health: " + currentHealth + "/" + maxHealth);
+        currentHealth -= amount;
+
+        currentHealth = Mathf.Clamp(
+            currentHealth,
+            0,
+            maxHealth
+        );
 
         UpdateHealthBar();
 
+        Debug.Log(
+            "Astronaut health: " +
+            currentHealth +
+            "/" +
+            maxHealth
+        );
+
         if (currentHealth <= 0)
         {
+            rb.linearVelocity = Vector2.zero;
+
             if (SpaceGameManager.Instance != null)
             {
                 SpaceGameManager.Instance.LoseGame();
@@ -223,27 +345,44 @@ public class AstronautMovement : MonoBehaviour
 
     private IEnumerator HitRoutine()
     {
-        canTakeDamage = false;
         isHit = true;
 
-        yield return new WaitForSeconds(0.4f);
+        // Return to normal size after being hit.
+        SetShifting(false);
+
+        rb.linearVelocity = Vector2.zero;
+
+        yield return new WaitForSeconds(
+            hitDuration
+        );
 
         isHit = false;
 
-        yield return new WaitForSeconds(damageCooldown);
+        yield return new WaitForSeconds(
+            damageCooldown
+        );
 
         canTakeDamage = true;
     }
 
     private void UpdateHealthBar()
     {
-        if (healthBar != null)
+        if (healthBar == null)
         {
-            healthBar.fillAmount = (float)currentHealth / maxHealth;
+            return;
         }
+
+        // 3/3 = 1.00
+        // 2/3 = 0.67
+        // 1/3 = 0.33
+        // 0/3 = 0.00
+        healthBar.fillAmount =
+            (float)currentHealth / maxHealth;
     }
 
-    private void ChangeState(AstronautState newState)
+    private void ChangeState(
+        AstronautState newState
+    )
     {
         if (currentState == newState)
         {
@@ -257,21 +396,24 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
-        if (currentState == AstronautState.Idle)
+        switch (currentState)
         {
-            animator.Play(idleAnimation);
-        }
-        else if (currentState == AstronautState.Walking)
-        {
-            animator.Play(walkingAnimation);
-        }
-        else if (currentState == AstronautState.Shifting)
-        {
-            animator.Play(shiftingAnimation);
-        }
-        else if (currentState == AstronautState.Hit)
-        {
-            animator.Play(idleAnimation);
+            case AstronautState.Idle:
+                animator.Play(idleAnimation);
+                break;
+
+            case AstronautState.Walking:
+                animator.Play(walkingAnimation);
+                break;
+
+            case AstronautState.Shifting:
+                animator.Play(shiftingAnimation);
+                break;
+
+            case AstronautState.Hit:
+                // Uses Idle because there is no Hit animation.
+                animator.Play(idleAnimation);
+                break;
         }
     }
 }

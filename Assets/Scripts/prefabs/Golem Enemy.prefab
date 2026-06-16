@@ -31,58 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6312554787213424446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4930739593066788524
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2201717556521630368}
-  - component: {fileID: 8971109324260935443}
-  m_Layer: 0
-  m_Name: Metorite Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2201717556521630368
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4930739593066788524}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6312554787213424446}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8971109324260935443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4930739593066788524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d231fbc02a2d9423c92352546e5ab3d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MeteoriteSpawner
-  meteoritePrefab: {fileID: 0}
-  minimumDelay: 0.8
-  maximumDelay: 1.5
-  minimumAmount: 1
-  maximumAmount: 3
-  minimumY: -4
-  maximumY: 4
-  spacing: 1.5
 --- !u!1 &5216115872301027115
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +67,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6394081701395087643}
-  - {fileID: 2201717556521630368}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7444479343385472915
@@ -243,19 +190,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GolemEnemy
   astronaut: {fileID: 0}
+  detectionRadius: 8
   chaseSpeed: 3
   followDistance: 4
+  packSpread: 1.5
   powerBulletPrefab: {fileID: 0}
   firePoint: {fileID: 6394081701395087643}
-  bulletSpeed: 7
+  attackRange: 7
   minimumAttackDelay: 3
   maximumAttackDelay: 6
   attackDuration: 0.6
-  hitAnimationDuration: 0.25
-  flyAwaySpeed: 8
-  spinSpeed: 720
-  deathAnimationDuration: 0.4
   poofEffectPrefab: {fileID: 0}
+  deathDuration: 0.4
   idleAnimation: EnemyIdle
   runAnimation: EnemyRun
   attackAnimation: EnemyAttack

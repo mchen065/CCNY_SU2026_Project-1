@@ -12,6 +12,8 @@ public class SpaceGameManager : MonoBehaviour
     public TextMeshProUGUI resultText;
 
     private float timeRemaining;
+    AstronautMovement playerOne;
+    Rigidbody2D playerRB;
 
     public bool GameEnded { get; private set; }
 
@@ -32,7 +34,7 @@ public class SpaceGameManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameEnded) return;
+        if (GameEnded) { playerOne.enabled = false; playerRB.linearVelocity = Vector3.zero; return; }
 
         timeRemaining -= Time.deltaTime;
 

@@ -1,3 +1,4 @@
+
 using System.Collections;
 using UnityEngine;
 
@@ -13,56 +14,69 @@ public class GolemEnemy : MonoBehaviour
         Death
     }
 
-    [Header("Target")]
-    public Transform astronaut;
+    [Header("Detection")]
+    [SerializeField] private Transform astronaut;
+    [SerializeField] private float detectionRadius = 8f;
 
-    [Header("Movement")]
-    public float chaseSpeed = 3f;
-    public float followDistance = 4f;
+    [Header("Pack Chasing")]
+    [SerializeField] private float chaseSpeed = 3f;
+    [SerializeField] private float followDistance = 3.5f;
+    [SerializeField] private float packSpread = 1.5f;
 
-    [Header("Shooting")]
-    public GameObject powerBulletPrefab;
-    public Transform firePoint;
-    public float minAttackDelay = 3f;
-    public float maxAttackDelay = 6f;
-    public float attackDuration = 0.6f;
+    [Header("Attack")]
+    [SerializeField] private GameObject powerBulletPrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float attackRange = 7f;
+    [SerializeField] private float minimumAttackDelay = 3f;
+    [SerializeField] private float maximumAttackDelay = 6f;
+    [SerializeField] private float attackDuration = 0.6f;
 
-    [Header("Death / Hit")]
-    public GameObject poofEffectPrefab;
-    public float hitDuration = 0.3f;
-    public float deathDuration = 0.4f;
-    public float flyAwaySpeed = 8f;
-    public float spinSpeed = 720f;
+    [Header("Death")]
+    [SerializeField] private GameObject poofEffectPrefab;
+    [SerializeField] private float deathDuration = 0.4f;
 
     [Header("Animation Names")]
-    public string idleAnimation = "enemyidle";
-    public string runAnimation = "enemyrun";
-    public string attackAnimation = "enemyattack";
-    public string hitAnimation = "golemhit";
-    public string deathAnimation = "enemydeath";
+    [SerializeField] private string idleAnimation = "enemyidle";
+    [SerializeField] private string runAnimation = "enemyrun";
+    [SerializeField] private string attackAnimation = "enemyattack";
+    [SerializeField] private string hitAnimation = "golemhit";
+    [SerializeField] private string deathAnimation = "enemydeath";
 
     private Rigidbody2D rb;
     private Animator animator;
-    private Collider2D[] colliders;
+    private Collider2D[] enemyColliders;
+
+    private Vector2 packOffset;
 
     private float attackTimer;
+
+    private bool detectedPlayer;
     private bool busy;
     private bool dead;
 
-    private GolemState currentState = (GolemState)(-1);
+    private GolemState currentState =
+        (GolemState)(-1);
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
-        colliders = GetComponentsInChildren<Collider2D>();
+
+        enemyColliders =
+            GetComponentsInChildren<Collider2D>();
 
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
 
+        packOffset = new Vector2(
+            Random.Range(-packSpread, packSpread),
+            Random.Range(-packSpread, packSpread)
+        );
+
         if (astronaut == null)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            AstronautMovement player =
+                FindObjectOfType<AstronautMovement>();
 
             if (player != null)
             {
@@ -74,9 +88,14 @@ public class GolemEnemy : MonoBehaviour
         ChangeState(GolemState.Idle);
     }
 
+    public void SetTarget(Transform newTarget)
+    {
+        astronaut = newTarget;
+    }
+
     private void Update()
     {
-        if (dead)
+        if (dead || astronaut == null)
         {
             return;
         }
@@ -89,14 +108,34 @@ public class GolemEnemy : MonoBehaviour
             return;
         }
 
-        if (astronaut == null || busy)
+        float distanceToPlayer =
+            Vector2.Distance(
+                transform.position,
+                astronaut.position
+            );
+
+        // Once detected, the golem permanently joins the pack.
+        if (!detectedPlayer &&
+            distanceToPlayer <= detectionRadius)
+        {
+            detectedPlayer = true;
+        }
+
+        if (!detectedPlayer)
+        {
+            ChangeState(GolemState.Idle);
+            return;
+        }
+
+        if (busy)
         {
             return;
         }
 
         attackTimer -= Time.deltaTime;
 
-        if (attackTimer <= 0f)
+        if (attackTimer <= 0f &&
+            distanceToPlayer <= attackRange)
         {
             StartCoroutine(AttackRoutine());
         }
@@ -108,23 +147,30 @@ public class GolemEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (dead || busy || astronaut == null)
+        if (dead ||
+            busy ||
+            !detectedPlayer ||
+            astronaut == null)
         {
             return;
         }
 
         Vector2 targetPosition = new Vector2(
-            astronaut.position.x - followDistance,
-            astronaut.position.y
+            astronaut.position.x -
+                followDistance +
+                packOffset.x,
+
+            astronaut.position.y +
+                packOffset.y
         );
 
-        Vector2 newPosition = Vector2.MoveTowards(
-            rb.position,
-            targetPosition,
-            chaseSpeed * Time.fixedDeltaTime
+        rb.MovePosition(
+            Vector2.MoveTowards(
+                rb.position,
+                targetPosition,
+                chaseSpeed * Time.fixedDeltaTime
+            )
         );
-
-        rb.MovePosition(newPosition);
     }
 
     private IEnumerator AttackRoutine()
@@ -134,9 +180,12 @@ public class GolemEnemy : MonoBehaviour
 
         ChangeState(GolemState.Attack);
 
-        yield return new WaitForSeconds(attackDuration * 0.5f);
+        yield return new WaitForSeconds(
+            attackDuration * 0.5f
+        );
 
-        if (powerBulletPrefab != null && firePoint != null)
+        if (powerBulletPrefab != null &&
+            firePoint != null)
         {
             Instantiate(
                 powerBulletPrefab,
@@ -145,15 +194,17 @@ public class GolemEnemy : MonoBehaviour
             );
         }
 
-        yield return new WaitForSeconds(attackDuration * 0.5f);
+        yield return new WaitForSeconds(
+            attackDuration * 0.5f
+        );
 
-        ResetAttackTimer();
         busy = false;
+        ResetAttackTimer();
 
         ChangeState(GolemState.Run);
     }
 
-    public void HitByMeteorite()
+    private void DieFromMeteorite()
     {
         if (dead)
         {
@@ -163,37 +214,6 @@ public class GolemEnemy : MonoBehaviour
         StartCoroutine(DeathRoutine());
     }
 
-    public void HitByPlayer()
-    {
-        if (dead)
-        {
-            return;
-        }
-
-        StartCoroutine(HitRoutine());
-    }
-
-    private IEnumerator HitRoutine()
-    {
-        dead = true;
-        busy = true;
-
-        DisableColliders();
-        ChangeState(GolemState.Hit);
-
-        yield return new WaitForSeconds(hitDuration);
-
-        rb.freezeRotation = false;
-        rb.angularVelocity = spinSpeed;
-
-        rb.linearVelocity = new Vector2(
-            flyAwaySpeed,
-            Random.Range(-2f, 2f)
-        );
-
-        Destroy(gameObject, 2.5f);
-    }
-
     private IEnumerator DeathRoutine()
     {
         dead = true;
@@ -201,10 +221,12 @@ public class GolemEnemy : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
 
-        DisableColliders();
         ChangeState(GolemState.Death);
+        DisableColliders();
 
-        yield return new WaitForSeconds(deathDuration);
+        yield return new WaitForSeconds(
+            deathDuration
+        );
 
         if (poofEffectPrefab != null)
         {
@@ -220,14 +242,17 @@ public class GolemEnemy : MonoBehaviour
 
     private void ResetAttackTimer()
     {
-        attackTimer = Random.Range(minAttackDelay, maxAttackDelay);
+        attackTimer = Random.Range(
+            minimumAttackDelay,
+            maximumAttackDelay
+        );
     }
 
     private void DisableColliders()
     {
-        foreach (Collider2D col in colliders)
+        foreach (Collider2D enemyCollider in enemyColliders)
         {
-            col.enabled = false;
+            enemyCollider.enabled = false;
         }
     }
 
@@ -273,15 +298,18 @@ public class GolemEnemy : MonoBehaviour
     {
         if (other.GetComponentInParent<Meterorite>() != null)
         {
-            HitByMeteorite();
+            DieFromMeteorite();
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(
+        Collision2D collision
+    )
     {
-        if (collision.transform.GetComponentInParent<Meterorite>() != null)
+        if (collision.collider
+            .GetComponentInParent<Meterorite>() != null)
         {
-            HitByMeteorite();
+            DieFromMeteorite();
         }
     }
 }

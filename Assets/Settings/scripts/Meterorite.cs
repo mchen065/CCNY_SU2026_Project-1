@@ -2,17 +2,34 @@ using UnityEngine;
 
 public class Meterorite : MonoBehaviour
 {
-    [SerializeField] private float speed = 4f;
-    [SerializeField] private float destroyX = -20f;
+    [Header("Meteorite Type")]
+    [SerializeField] private bool isSmall;
 
-    private void Update()
+    [Header("Breaking")]
+    [SerializeField] private GameObject breakEffect;
+
+    private bool broken;
+
+    public bool IsSmall => isSmall;
+
+    public void BreakMeteorite()
     {
-        transform.position +=
-            Vector3.left * speed * Time.deltaTime;
-
-        if (transform.position.x < destroyX)
+        if (broken)
         {
-            Destroy(gameObject);
+            return;
         }
+
+        broken = true;
+
+        if (breakEffect != null)
+        {
+            Instantiate(
+                breakEffect,
+                transform.position,
+                Quaternion.identity
+            );
+        }
+
+        Destroy(gameObject);
     }
 }
