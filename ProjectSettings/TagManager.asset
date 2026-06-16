@@ -12,6 +12,8 @@ TagManager:
   - Enemy
   - Meteorite
   - PowerBullet
+  - Spaceship
+  - ' SpaceshipGoal'
   layers:
   - Default
   - TransparentFX
@@ -19,15 +21,15 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Background
   - 
   - Water
   - WhirlPool
   - Duck
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - MeteoriteWall
+  - 'Meteortite '
+  - Effects
   - 
   - 
   - 
@@ -60,6 +62,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3511852777
+    locked: 0
+  - name: Effects
+    uniqueID: 3466084999
     locked: 0
   m_RenderingLayers:
   - Default

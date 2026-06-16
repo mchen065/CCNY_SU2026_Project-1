@@ -17,25 +17,31 @@ public class AstronautMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float forwardSpeed = 2f;
     [SerializeField] private float verticalSpeed = 6f;
+
+    // The astronaut moves faster while Space is held.
+    // Example: 1.5 = 50% faster.
+    [SerializeField] private float shiftingSpeedMultiplier = 1.5f;
+
     [SerializeField] private float bottomLimit = -4f;
     [SerializeField] private float topLimit = 4f;
 
     [Header("Health")]
     [SerializeField] private int maxHealth = 3;
-
-    // Drag the three-heart UI Image into this field.
     [SerializeField] private Image healthBar;
 
-    // How long the astronaut cannot take damage after a hit.
+    [SerializeField] private float hitDuration = 0.3f;
     [SerializeField] private float damageCooldown = 1f;
 
-    // How long the astronaut remains in the Hit state.
-    [SerializeField] private float hitDuration = 0.3f;
+    [Header("Meteorite Breaking")]
+
+    // This chance is used only while the astronaut is normal-sized.
+    // 0.35 means a 35% chance.
+    [Range(0f, 1f)]
+    [SerializeField] private float normalBreakChance = 0.35f;
 
     [Header("Shifting")]
     [SerializeField] private Transform visual;
 
-    // Half size by default.
     [Range(0.2f, 1f)]
     [SerializeField] private float shiftedSize = 0.5f;
 
@@ -62,10 +68,7 @@ public class AstronautMovement : MonoBehaviour
     private AstronautState currentState =
         (AstronautState)(-1);
 
-    // Other scripts can check whether the astronaut is shifting.
     public bool IsShifting => isShifting;
-
-    // Other scripts can read the astronaut's health.
     public int CurrentHealth => currentHealth;
 
     private void Awake()
@@ -80,8 +83,7 @@ public class AstronautMovement : MonoBehaviour
         rb.gravityScale = 0f;
         rb.linearDamping = 0f;
 
-        // Allow movement on X and Y.
-        // Only prevent unwanted rotation.
+        // Allow X and Y movement, but stop rotation.
         rb.constraints =
             RigidbodyConstraints2D.FreezeRotation;
 
@@ -105,19 +107,17 @@ public class AstronautMovement : MonoBehaviour
 
         if (healthBar != null)
         {
-            // Required for fillAmount to change visually.
             healthBar.type = Image.Type.Filled;
             healthBar.fillMethod =
                 Image.FillMethod.Horizontal;
 
-            // Fill begins from the left side.
             healthBar.fillOrigin = 0;
             healthBar.fillAmount = 1f;
         }
         else
         {
             Debug.LogError(
-                "Health Bar is not assigned on AstronautMovement.",
+                "Assign the Health Bar UI Image.",
                 this
             );
         }
@@ -136,7 +136,6 @@ public class AstronautMovement : MonoBehaviour
         }
 
         // W/S or Up/Down.
-        // A and D are ignored.
         verticalInput =
             Input.GetAxisRaw("Vertical");
 
@@ -182,14 +181,19 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
-        // Constantly travel right.
-        // The player controls only the vertical movement.
+        float speedMultiplier =
+            isShifting
+                ? shiftingSpeedMultiplier
+                : 1f;
+
+        // Shifting increases both forward and vertical speed.
         rb.linearVelocity = new Vector2(
-            forwardSpeed,
-            verticalInput * verticalSpeed
+            forwardSpeed * speedMultiplier,
+            verticalInput *
+                verticalSpeed *
+                speedMultiplier
         );
 
-        // Keep the astronaut inside the vertical play area.
         Vector2 position = rb.position;
 
         position.y = Mathf.Clamp(
@@ -208,14 +212,13 @@ public class AstronautMovement : MonoBehaviour
         float sizeMultiplier =
             isShifting ? shiftedSize : 1f;
 
-        // Change the visual size.
         if (visual != null)
         {
             visual.localScale =
                 normalVisualScale * sizeMultiplier;
         }
 
-        // Change the actual collision box size.
+        // Shrink the physical collider too.
         hitbox.size =
             normalHitboxSize * sizeMultiplier;
 
@@ -237,7 +240,7 @@ public class AstronautMovement : MonoBehaviour
 
     private void HandleContact(Transform objectHit)
     {
-        // The spaceship is checked first so it never causes damage.
+        // Spaceship always wins and never causes damage.
         SpaceshipGoal spaceship =
             objectHit.GetComponentInParent<SpaceshipGoal>();
 
@@ -262,7 +265,7 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
-        // Golem enemy.
+        // Golem collision.
         GolemEnemy golem =
             objectHit.GetComponentInParent<GolemEnemy>();
 
@@ -272,28 +275,48 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
-        // Loose bouncing meteorite.
-        LooseMeteorite looseMeteorite =
+        // Loose meteorite collision.
+        LooseMeteorite meteorite =
             objectHit.GetComponentInParent<LooseMeteorite>();
-
-        if (looseMeteorite != null)
-        {
-            TakeDamage(1);
-            return;
-        }
-
-        // Supports any remaining Meteorite.cs objects.
-        Meterorite meteorite =
-            objectHit.GetComponentInParent<Meterorite>();
 
         if (meteorite != null)
         {
-            TakeDamage(1);
+            HandleMeteoriteCollision(meteorite);
         }
     }
 
-    // Public so LooseMeteorite.cs can call:
-    // astronaut.TakeDamage(damage);
+    private void HandleMeteoriteCollision(
+        LooseMeteorite meteorite
+    )
+    {
+        if (meteorite == null)
+        {
+            return;
+        }
+
+        // A normal-sized astronaut has a percentage
+        // chance to break the meteorite.
+        if (!isShifting)
+        {
+            float breakRoll = Random.value;
+
+            if (breakRoll <= normalBreakChance)
+            {
+                Debug.Log(
+                    "Meteorite broken! Roll: " +
+                    breakRoll
+                );
+
+                meteorite.BreakMeteorite();
+                return;
+            }
+        }
+
+        // Shifting does not receive the normal-size
+        // breaking chance. A failed roll also causes damage.
+        TakeDamage(1);
+    }
+
     public void TakeDamage(int amount = 1)
     {
         if (!canTakeDamage)
@@ -307,8 +330,6 @@ public class AstronautMovement : MonoBehaviour
             return;
         }
 
-        // Lock damage immediately so one collision
-        // cannot remove several hearts.
         canTakeDamage = false;
 
         currentHealth -= amount;
@@ -411,7 +432,6 @@ public class AstronautMovement : MonoBehaviour
                 break;
 
             case AstronautState.Hit:
-                // Uses Idle because there is no Hit animation.
                 animator.Play(idleAnimation);
                 break;
         }

@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LooseMeteorite
   moveSpeed: 5
+  verticalVariation: 0.3
   spinSpeed: -180
-  breakEffect: {fileID: 0}
-  destroyX: -20
+  breakParticlePrefab: {fileID: 1272467467989364418, guid: c1e84606f61fd44199eb24b1102c3992, type: 3}
+  particleScale: 1.5
+  lifetime: 30

@@ -6,19 +6,16 @@ public class LooseMeteorite : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
-
-    // Small vertical variation while still moving mainly left.
-    [SerializeField] private float verticalVariation = 1.5f;
+    [SerializeField] private float verticalVariation = 0.3f;
 
     [Header("Spinning")]
-    // Negative value spins clockwise.
     [SerializeField] private float spinSpeed = -220f;
 
-    [Header("Damage")]
-    [SerializeField] private int damage = 1;
+    [Header("Dramatic Breaking")]
+    [SerializeField] private GameObject breakParticlePrefab;
 
-    [Header("Breaking")]
-    [SerializeField] private GameObject breakEffect;
+    // Slightly enlarges the effect.
+    [SerializeField] private float particleScale = 1.5f;
 
     [Header("Cleanup")]
     [SerializeField] private float lifetime = 30f;
@@ -26,19 +23,22 @@ public class LooseMeteorite : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D meteoriteCollider;
 
-    private bool broken;
+    private bool isBreaking;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         meteoriteCollider = GetComponent<Collider2D>();
 
-        // Space physics.
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.simulated = true;
+
+        // Zero-gravity space physics.
         rb.gravityScale = 0f;
         rb.linearDamping = 0f;
         rb.angularDamping = 0f;
+
+        rb.constraints = RigidbodyConstraints2D.None;
 
         rb.collisionDetectionMode =
             CollisionDetectionMode2D.Continuous;
@@ -46,13 +46,8 @@ public class LooseMeteorite : MonoBehaviour
         rb.interpolation =
             RigidbodyInterpolation2D.Interpolate;
 
-        // Allow movement on both X and Y.
-        // Allow the meteorite to spin.
-        rb.constraints = RigidbodyConstraints2D.None;
-
         meteoriteCollider.isTrigger = false;
 
-        // Make the meteorite bounce.
         PhysicsMaterial2D bounceMaterial =
             new PhysicsMaterial2D("MeteoriteBounce");
 
@@ -65,35 +60,35 @@ public class LooseMeteorite : MonoBehaviour
 
     private void Start()
     {
-        // Begin travelling mainly toward the left.
-        Vector2 startingDirection = new Vector2(
+        // Start by flying mainly toward the left.
+        Vector2 direction = new Vector2(
             -1f,
             Random.Range(
                 -verticalVariation,
                 verticalVariation
-            ) * 0.15f
+            )
         ).normalized;
 
         rb.linearVelocity =
-            startingDirection * moveSpeed;
+            direction * moveSpeed;
 
-        rb.angularVelocity = spinSpeed;
+        rb.angularVelocity =
+            spinSpeed;
 
         Destroy(gameObject, lifetime);
     }
 
     private void FixedUpdate()
     {
-        if (broken)
+        if (isBreaking)
         {
             return;
         }
 
-        // Force gravity to remain disabled.
+        // Keep space gravity disabled.
         rb.gravityScale = 0f;
 
-        // Keep the meteorite moving at a steady speed
-        // without forcing it downward.
+        // Maintain a steady speed after bouncing.
         if (rb.linearVelocity.sqrMagnitude < 0.1f)
         {
             rb.linearVelocity =
@@ -106,66 +101,181 @@ public class LooseMeteorite : MonoBehaviour
                 moveSpeed;
         }
 
-        rb.angularVelocity = spinSpeed;
+        rb.angularVelocity =
+            spinSpeed;
     }
 
     private void OnCollisionEnter2D(
         Collision2D collision
     )
     {
-        if (broken)
+        if (isBreaking)
         {
             return;
         }
 
-        // Damage the astronaut.
-        AstronautMovement astronaut =
-            collision.collider
-                .GetComponentInParent<AstronautMovement>();
-
-        if (astronaut != null)
+        // The astronaut handles its own percentage roll.
+        if (collision.collider
+            .GetComponentInParent<AstronautMovement>() != null)
         {
-            astronaut.TakeDamage(damage);
             return;
         }
 
-        // Two loose meteorites break when they collide.
         LooseMeteorite otherMeteorite =
             collision.collider
                 .GetComponentInParent<LooseMeteorite>();
 
-        if (otherMeteorite != null &&
-            otherMeteorite != this)
+        if (otherMeteorite == null ||
+            otherMeteorite == this ||
+            otherMeteorite.isBreaking)
         {
-            otherMeteorite.BreakMeteorite();
-            BreakMeteorite();
+            // Hitting a wall only causes a bounce.
+            return;
         }
 
-        // Wall collisions are handled automatically
-        // by the bouncy Physics Material.
-    }
-
-    public void BreakMeteorite()
-    {
-        if (broken)
+        /*
+         * Both meteorites receive the collision callback.
+         * Only the meteorite with the smaller instance ID
+         * creates the shared explosion.
+         */
+        if (GetInstanceID() >
+            otherMeteorite.GetInstanceID())
         {
             return;
         }
 
-        broken = true;
+        Vector3 explosionPosition =
+            GetCollisionPosition(
+                collision,
+                otherMeteorite
+            );
 
+        // Mark both immediately to prevent duplicate effects.
+        isBreaking = true;
+        otherMeteorite.isBreaking = true;
+
+        SpawnDramaticParticles(
+            explosionPosition
+        );
+
+        otherMeteorite.DestroyMeteorite();
+        DestroyMeteorite();
+    }
+
+    private Vector3 GetCollisionPosition(
+        Collision2D collision,
+        LooseMeteorite otherMeteorite
+    )
+    {
+        if (collision.contactCount > 0)
+        {
+            return collision.GetContact(0).point;
+        }
+
+        return (
+            transform.position +
+            otherMeteorite.transform.position
+        ) * 0.5f;
+    }
+
+    /*
+     * AstronautMovement calls this when the
+     * normal-size percentage roll succeeds.
+     */
+    public void BreakMeteorite()
+    {
+        if (isBreaking)
+        {
+            return;
+        }
+
+        isBreaking = true;
+
+        SpawnDramaticParticles(
+            transform.position
+        );
+
+        DestroyMeteorite();
+    }
+
+    private void SpawnDramaticParticles(Vector3 position)
+    {
+        if (breakParticlePrefab == null)
+        {
+            Debug.LogError(
+                "Break Particle Prefab is not assigned!",
+                this
+            );
+
+            return;
+        }
+
+        GameObject effect = Instantiate(
+            breakParticlePrefab,
+            position,
+            Quaternion.identity
+        );
+
+        effect.SetActive(true);
+
+        // Make the explosion clearly visible.
+        effect.transform.localScale =
+            Vector3.one * particleScale;
+
+        ParticleSystem[] systems =
+            effect.GetComponentsInChildren<ParticleSystem>(true);
+
+        foreach (ParticleSystem particles in systems)
+        {
+            particles.gameObject.SetActive(true);
+
+            ParticleSystem.MainModule main =
+                particles.main;
+
+            // Keep fragments in place after the meteorite disappears.
+            main.simulationSpace =
+                ParticleSystemSimulationSpace.World;
+
+            main.loop = false;
+
+            // Destroy the particle object after all particles finish.
+            main.stopAction =
+                ParticleSystemStopAction.Destroy;
+
+            ParticleSystemRenderer particleRenderer =
+                particles.GetComponent<ParticleSystemRenderer>();
+
+            if (particleRenderer != null)
+            {
+                // Force particles in front of the background.
+                particleRenderer.sortingLayerName = "Effects";
+                particleRenderer.sortingOrder = 50;
+            }
+
+            particles.Clear(true);
+            particles.Play(true);
+        }
+
+        Debug.Log(
+            "Meteorite explosion spawned at: " + position,
+            effect
+        );
+    }
+
+    private void DestroyMeteorite()
+    {
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
 
         meteoriteCollider.enabled = false;
 
-        if (breakEffect != null)
+        // Hide immediately so the break feels responsive.
+        SpriteRenderer[] renderers =
+            GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer sprite in renderers)
         {
-            Instantiate(
-                breakEffect,
-                transform.position,
-                Quaternion.identity
-            );
+            sprite.enabled = false;
         }
 
         Destroy(gameObject);
